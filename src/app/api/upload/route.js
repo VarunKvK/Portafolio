@@ -13,7 +13,7 @@ export async function POST(req) {
                 secretAccessKey: process.env.NEXT_PUBLIC_AWS_SECRET_ACCESS_KEY,
             },
         });
-
+        
         const randomId = uniqid();
         const ext = file.name.split('.').pop();
         const newFilename = randomId + '.' + ext;
