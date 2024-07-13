@@ -18,6 +18,10 @@ module.exports = {
     },
     extend: {
       fontFamily: {
+        mulish:["Mulish", 'sans-serif'],
+        philosopher:["Philosopher", 'sans-serif'],
+        quat:["Quattrocento", 'serif'],
+        oswald:["Oswald", 'sans-serif'],
         libre: ['"Libre Barcode 39 Text"', 'cursive'],
         inter: ["Inter", 'sans-serif'],
         outfit: [ "Outfit", 'sans-serif'],
