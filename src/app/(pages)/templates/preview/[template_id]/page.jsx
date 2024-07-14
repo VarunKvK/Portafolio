@@ -17,8 +17,7 @@ const PreviewPage = () => {
   const [templateHTML, setTemplateHTML] = useState("");
   const [progress, setProgress] = useState(0);
   const [renderTemplates, setRenderTemplates] = useState([]);
-
-  const [hasPortfolioData, setPortfolioData] = useState();
+  const [hasPortfolioData, setPortfolioData] = useState(false);
 
   useEffect(() => {
     const fetchSpecificTemplate = async () => {
@@ -27,7 +26,7 @@ const PreviewPage = () => {
         setProgress(90);
         const response = await fetch("/api/templateFetcher", {
           method: "POST",
-          divs: {
+          headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({ template_id }),
@@ -45,18 +44,12 @@ const PreviewPage = () => {
           throw new Error("Failed to fetch template code");
         }
         const code = await templateResponse.text();
-        const TemplateFunction = new Function(`
-          ${code}
-        `);
-
-        const htmlString = TemplateFunction();
-        setTemplateHTML(htmlString);
+        setTemplateHTML(code);
       } catch (error) {
         console.error("Error loading template:", error);
         setProgress(0);
       }
     };
-    fetchSpecificTemplate();
 
     const fetchTemplate = async () => {
       try {
@@ -73,7 +66,6 @@ const PreviewPage = () => {
         console.error("Error fetching templates:", error);
       }
     };
-    fetchTemplate();
 
     const fetchUserPortfolioData = async () => {
       try {
@@ -84,16 +76,18 @@ const PreviewPage = () => {
         console.error("Error fetching user portfolio data:", err);
       }
     };
+
+    fetchSpecificTemplate();
+    fetchTemplate();
     fetchUserPortfolioData();
   }, [template_id]);
 
   function storingTemplateId() {
-    if (typeof window !== 'undefined' && window.localStorage) {
-    //Save the template id to local storage
-    window.localStorage.setItem("template_id", template_id);
+    if (typeof window !== "undefined" && window.localStorage) {
+      // Save the template id to local storage
+      window.localStorage.setItem("template_id", template_id);
     }
   }
-
 
   return (
     <div className="max-w-8xl mx-auto w-full p-4 md:p-8">
@@ -116,7 +110,12 @@ const PreviewPage = () => {
               Let's get it done
             </Link>
           ) : (
-            <Button onClick={()=>router.push(`/processing/${template_id}`)} className="flex justify-center bg-[#F1C40F] dark:bg-[#F1C40F] px-4 py-2 text-sm rounded-[15px] text-[#282F30] dark:text-[#282F30] font-bold transition duration-300 md:hover:shadow-[0_0_20px_5px_currentColor]">Create Portfolio</Button>
+            <Button
+              onClick={() => router.push(`/processing/${template_id}`)}
+              className="flex justify-center bg-[#F1C40F] dark:bg-[#F1C40F] px-4 py-2 text-sm rounded-[15px] text-[#282F30] dark:text-[#282F30] font-bold transition duration-300 md:hover:shadow-[0_0_20px_5px_currentColor]"
+            >
+              Create Portfolio
+            </Button>
           )}
         </div>
         {!templateHTML && <Loader progress={progress} />}

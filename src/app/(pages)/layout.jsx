@@ -1,10 +1,10 @@
 import { Lato } from "next/font/google";
-import "./globals.css";
+import "../../app/globals.css";
 import Navbar from "@/components/Navbar";
 import { ClerkProvider, SignIn, SignedOut } from "@clerk/nextjs";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
-import { CSPostHogProvider } from "./provider";
+import { CSPostHogProvider } from "../provider";
 
 const lato = Lato({
   subsets: ["latin", "latin-ext"],

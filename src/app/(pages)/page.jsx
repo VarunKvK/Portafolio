@@ -4,9 +4,9 @@ import { FeaturesList } from "@/components/Jsons/FeaturesJson";
 import Image from "next/image";
 import Link from "next/link";
 
-import TemplateGroup from "../../public/Images/Template.svg";
-import GenerateBtn from "../../public/Images/GenerateBtn.svg";
-import FormInput from "../../public/Images/FormInput.svg";
+import TemplateGroup from "../../../public/Images/Template.svg";
+import GenerateBtn from "../../../public/Images/GenerateBtn.svg";
+import FormInput from "../../../public/Images/FormInput.svg";
 
 import Features from "@/components/ResponsiveContainers/Features";
 import FooterContainer from "@/components/FooterContainer";
