@@ -119,7 +119,9 @@ const PreviewPage = () => {
           )}
         </div>
         {!templateHTML && <Loader progress={progress} />}
-        <div dangerouslySetInnerHTML={{ __html: templateHTML }} />
+        <div className="rounded-[30px] h-[100vh] overflow-y-auto">
+          <div dangerouslySetInnerHTML={{ __html: templateHTML }} />
+        </div>
       </div>
       <div className="mt-10">
         <h1 className="mb-4 text-center text-[32px] font-bold text-[#282f30] dark:text-[#f1f1f1]">

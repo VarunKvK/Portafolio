@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>{{websiteName}}.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Quattrocento:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .background {
+        background-color: #000;
+        padding: 10px 20px 0px 20px;
+      }
+
+      .nav-links {
+        padding-top: 20px;
+      }
+
+      .q-font {
+        font-family: "Quattrocento", serif;
+      }
+
+      .oswald {
+        font-family: "Oswald", sans-serif;
+      }
+
+      .text-responsive {
+        font-size: 50px;
+      }
+
+      .p-text-responsive {
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+      }
+
+      .cases-text-responsive {
+        font-size: 40px;
+      }
+
+      .cases-description-text {
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+      }
+
+      .project-grid-layout {
+        display: grid;
+        gap: 50px;
+      }
+
+      .footer-div {
+        padding: 24rem 0 1rem 0;
+      }
+
+      .project-image-dimensions {
+        width: 100%;
+        height: 440px;
+      }
+
+      .space-between-div {
+        padding-top: 15rem;
+      }
+
+      .header-spacing{
+        padding-top: 9rem;
+      }
+      @media (min-width: 640px) {
+        .bio-width {
+        width: 85%;
+    }
+        .text-responsive {
+          font-size: 80px;
+        }
+        .project-image-dimensions {
+          width: 100%;
+          height: 500px;
+        }
+      }
+      @media (min-width: 768px) {
+        .header-gap {
+          gap: 20rem;
+        }
+        .nav-links {
+          padding-top: 0px;
+        }
+        .text-responsive {
+          font-size: 106px;
+        }
+        .skill-text {
+          font-size: 1.5rem;
+          line-height: 2rem;
+        }
+        .cases-text-responsive {
+          font-size: 90px;
+        }
+        .cases-description-text {
+          font-size: 1rem;
+          line-height: 1.5rem;
+        }
+        .project-grid-layout {
+          display: grid;
+          gap: 90px;
+        }
+        .cases-container {
+          /* cases-container */
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 100%;
+        }
+        .bio-width {
+        width: 60%;
+    }
+      }
+      
+      @media (min-width: 1024px) {
+        .bio-width {
+        width: 45%;
+    }
+        .header-gap {
+          gap: 10rem;
+        }
+        .text-responsive {
+          font-size: 140px;
+        }
+      }
+
+      @media (min-width: 1280px) {
+        .text-responsive {
+          font-size: 180px;
+        }
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="background">
+      <nav
+        class="py-[20px] text-white w-full flex flex-col md:flex-row items-center justify-center md:justify-between"
+      >
+        <div class="w-full flex justify-center md:justify-normal">
+          <a href="#" class="oswald text-center md:text-left text-2xl" id="home"
+            >{{websiteName}}.</a
+          >
+        </div>
+        <div class="nav-links flex md:items-end w-full">
+          <div
+            class="q-font text-sm w-full list-none flex items-center justify-between"
+          >
+            <a href="#about" class="text-center">About</a>
+            <a href="#cases" class="text-center flex items-center gap-1"
+              >Cases <span class="text-white/40">(4)</span></a
+            >
+            <a href="#connect" class="text-center">Connect</a>
+          </div>
+        </div>
+      </nav>
+
+      <main
+        id="about"
+        class="h-[80vh] w-full flex items-end md:items-center header-spacing"
+      >
+        <div
+          class="text-white md:flex md:justify-between md:flex-col header-gap w-full"
+        >
+          <h1 class="text-responsive oswald md:text-right">{{profession}}</h1>
+          <p
+            class="q-font text-sm sm:text-md md:text-md lg:text-lg text-white/40 lg:w-[45%] md:w-[60%] sm:w-[85%]"
+          >
+            {{bio}}
+          </p>
+        </div>
+      </main>
+
+      <section class="space-between-div text-white w-full grid gap-[5rem]">
+        <h1 class="oswald text-responsive">Skilled At</h1>
+        <div class="grid grid-cols-2 gap-10">
+         {{skills}}
+        </div>
+      </section>
+
+      <section id="cases" class="space-between-div text-white w-full grid gap-[5rem]">
+        <h1 class="text-responsive oswald md:text-right">Cases</h1>
+        <div class="project-grid-layout q-font">
+         {{projects}}
+        </div>
+      </section>
+
+      <section id="connect" class="footer-div text-white w-full grid gap-[10rem]">
+        <h1 class="text-responsive oswald text-white md:text-right">
+          Let's Talk
+        </h1>
+        <div
+          class="text-white text-sm grid gap-4 md:flex md:items-center md:justify-between w-full"
+        >
+          <a
+            href="mailto:{{email}}"
+            class="w-full md:text-left text-right q-font"
+            >{{email}}</a
+          >
+          <div class="flex items-center justify-between w-full">
+            {{socials}}
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

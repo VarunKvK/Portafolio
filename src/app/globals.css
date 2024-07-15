@@ -87,3 +87,27 @@ body {
   @apply bg-[#EBEBEB];
   @apply dark:bg-[#141718];
 }
+
+
+::-webkit-scrollbar {
+  width: 5px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Color of the scrollbar track */
+  border-radius: 6px;
+  padding: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #282F30; /* Color of the scrollbar handle */
+  border-radius: 6px; /* Rounding the edges of the scrollbar handle */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(51, 51, 51)F30; /* Color of the scrollbar handle when hovered */
+}
+
+::-webkit-scrollbar-corner {
+  background: #f1f1f1;
+}

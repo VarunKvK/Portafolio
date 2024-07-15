@@ -135,21 +135,12 @@
         }
       }
 
-      .skill-proficiency {
-        visibility: hidden;
-        opacity: 0;
-        transition: visibility 0s, opacity 0.3s linear;
-      }
-      .skill-item:hover .skill-proficiency {
-        visibility: visible;
-        opacity: 1;
-      }
     </style>
   </head>
   <body>
     <div class="background">
       <nav
-        class="py-[20px] md:text-white w-full flex flex-col md:flex-row items-center justify-center md:justify-between"
+        class="py-[20px] text-white w-full flex flex-col md:flex-row items-center justify-center md:justify-between"
       >
         <div class="w-full flex justify-center md:justify-normal">
           <a href="#" class="oswald text-center md:text-left text-2xl" id="home"
@@ -160,11 +151,11 @@
           <div
             class="q-font text-sm w-full list-none flex items-center justify-between"
           >
-            <a href="about" class="text-center">About</a>
-            <a href="cases" class="text-center flex items-center gap-1"
+            <a href="#about" class="text-center">About</a>
+            <a href="#cases" class="text-center flex items-center gap-1"
               >Cases <span class="text-white/40">(4)</span></a
             >
-            <a href="connect" class="text-center">Connect</a>
+            <a href="#connect" class="text-center">Connect</a>
           </div>
         </div>
       </nav>
@@ -191,7 +182,7 @@
 
       <section class="space-between-div text-white w-full grid gap-[5rem]">
         <h1 class="oswald text-responsive">Skilled At</h1>
-        <div class="grid gap-10">
+        <div class="grid grid-cols-2 gap-10">
           <div
             class="flex items-center justify-between px-3 border-b border-white pb-4"
           >
@@ -219,7 +210,7 @@
         </div>
       </section>
 
-      <section class="space-between-div text-white w-full grid gap-[5rem]">
+      <section id="cases" class="space-between-div text-white w-full grid gap-[5rem]">
         <h1 class="text-responsive oswald md:text-right">Cases</h1>
         <div class="project-grid-layout q-font">
           <a
@@ -309,7 +300,7 @@
         </div>
       </section>
 
-      <section class="footer-div text-white w-full grid gap-[10rem]">
+      <section id="connect" class="footer-div text-white w-full grid gap-[10rem]">
         <h1 class="text-responsive oswald text-white md:text-right">
           Let's Talk
         </h1>

@@ -10,7 +10,13 @@ const nextConfig = {
         },
         {
           hostname: 'portafolio001.s3.ap-southeast-2.amazonaws.com'
-        }
+        },
+        {
+          protocol: 'https',
+          hostname: 'images.unsplash.com',
+          port: '',
+          pathname: '/**',
+        },
       ]
     }
   };
