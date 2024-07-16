@@ -64,6 +64,7 @@ const ProcessPage = () => {
     if (!userData.portfolioInfo) {
       throw new Error("Portfolio information is missing in user data");
     }
+
     const skillsContainer = userData.portfolioInfo.skills
       .map(
         (skills) => `

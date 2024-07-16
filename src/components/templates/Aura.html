@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aura</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .philos {
+        font-family: "Philosopher", sans-serif;
+      }
+      .mulish {
+        font-family: "Mulish", sans-serif;
+      }
+      .text-color {
+        color: #f9e8c9;
+      }
+      .background {
+        background-color: #0b0046;
+        margin: 0;
+        box-sizing: border-box;
+        height: auto;
+      }
+
+      .logo-text {
+        font-size: 20px;
+        font-weight: bold;
+      }
+      .nav-text {
+        font-size: 16px;
+      }
+
+      .nav-bar {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 14px 18px 10px 18px;
+      }
+
+      .main-body {
+        width: 100%;
+        height: 90vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 5rem;
+        padding: 5rem 2rem 1rem 2rem;
+      }
+      .header {
+        text-align: center;
+        font-size: 50px;
+        width: 100%;
+      }
+      
+      .sub-header {
+          text-align: center;
+          font-size: 16px;
+          width: 100%;
+        }
+        
+        .project-section {
+            padding: 10rem 3rem 10rem 3rem;
+            display: grid;
+            gap: 5rem;
+        }
+        
+        .project-header {
+          text-align: center;
+          font-size: 50px;
+          width: 100%;
+        }
+
+      .project-image-dimensions {
+        width: 100%;
+        height: 440px;
+      }
+
+      .project-text-responsive {
+        font-size: 50px;
+      }
+
+      .project-description-text {
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+      }
+
+      .project-grid-layout {
+        display: grid;
+        gap: 5rem;
+      }
+
+      .footer-container {
+        padding: 4rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+      }
+
+      .footer-container-text {
+        font-size: 1rem;
+      }
+
+      .footer-container-socials {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+      }
+
+      @media (min-width: 640px) {
+        .background {
+          background-color: #f9e8c9;
+        }
+        .text-color {
+          color: #0b0046;
+        }
+        .project-image-dimensions {
+          width: 100%;
+          height: 500px;
+        }
+        .footer-container-text{
+            font-size: 1.5rem;
+        }
+      }
+      @media (min-width: 768px) {
+        .main-body {
+        width: 100%;
+        height: 90vh;
+        display: block;
+        gap: 2rem;
+        align-items: center;
+        padding: 15rem 2rem 1rem 2rem;
+      }
+
+      .header {
+        text-align: left;
+        font-size: 96px;
+        width: 100%;
+        }
+
+      .sub-header {
+        text-align: left;
+        font-size: 15px;
+        width: 50%;
+      }
+
+        .project-text-responsive {
+          font-size: 90px;
+        }
+        .project-description-text {
+          font-size: 1rem;
+          line-height: 1.5rem;
+          margin-bottom: .5rem;
+        }
+        .project-section {
+          display: grid;
+          gap: 8rem;
+        }
+        .project-grid-layout {
+          display: grid;
+          gap: 8rem;
+        }
+        .project-container {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 100%;
+        }
+        .footer-container {
+          padding: 4rem;
+          display: flex;
+          flex-direction: row;
+          align-items: end;
+          justify-content: space-between;
+        }
+        .footer-container-text {
+          font-size: 2.5rem;
+        }
+        .footer-container-socials{
+          display: flex;
+          flex-direction: column;
+          align-items: start;
+          gap: .5rem;
+          margin-bottom: .5rem;
+        }
+        .project-header {
+          text-align: right;
+          font-size: 96px;
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="background text-color">
+      <nav class="nav-bar">
+        <div class="philos">
+          <a href="#" class="logo-text">Divine.</a>
+        </div>
+        <div class="flex items-center gap-10 mulish nav-text">
+          <a href="#about" class="">About</a>
+          <a href="#gallery" class="">Gallery</a>
+          <a href="#contact" class="">Contact</a>
+        </div>
+      </nav>
+
+      <section class="main-body">
+        <h1 class="header philos">Photographer</h1>
+        <p class="sub-header opacity-50">
+          I'm Varun, a tech enthusiast with a deep passion for creating
+          innovative SaaS products. My expertise spans across multiple domains,
+          including camera technology, filming, and 3D design. I thrive on
+          turning creative ideas into functional and impactful digital
+          solutions.
+        </p>
+      </section>
+
+      <section class="project-section">
+        <h1 class="project-header philos">Gallery</h1>
+        <div class="italic philos project-grid-layout">
+          <a
+            href="https://unsplash.com/photos/blue-and-pink-light-illustration-LeG68PrXA6Y"
+            class=""
+          >
+            <div class="project-image-dimensions">
+              <img
+                src="https://images.unsplash.com/photo-1579546929518-9e396f3cc809?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt=""
+                class="w-full h-full relative object-cover"
+              />
+            </div>
+            <div class="project-container">
+              <h1 class="project-text-responsive font-bold">Case One</h1>
+              <p
+                class="opacity-50 project-description-text md:w-[40%] md:mt-10"
+              >
+                Minimal, a simple and intuitive task management application
+                designed to help you stay organized with ease. Our minimalist
+                approach focuses on providing you with a clutter-free experience
+                while efficiently managing your tasks.
+              </p>
+            </div>
+          </a>
+          <a
+            href="https://unsplash.com/photos/purple-white-and-orange-light-tZCrFpSNiIQ href"
+            class=""
+          >
+            <div class="project-image-dimensions">
+              <img
+                src="https://images.unsplash.com/photo-1604076913837-52ab5629fba9?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt=""
+                class="w-full h-full object-cover relative"
+              />
+            </div>
+            <div class="project-container">
+              <h1 class="project-text-responsive font-bold">Case One</h1>
+              <p
+                class="opacity-50 project-description-text md:w-[40%] md:mt-12"
+              >
+                Minimal, a simple and intuitive task management application
+                designed to help you stay organized with ease. Our minimalist
+                approach focuses on providing you with a clutter-free experience
+                while efficiently managing your tasks.
+              </p>
+            </div>
+          </a>
+          <a
+            href="https://unsplash.com/photos/a-blurry-image-of-a-rainbow-colored-background-C_NJKfnTR5A"
+            class=""
+          >
+            <div class="project-image-dimensions">
+              <img
+                src="https://images.unsplash.com/photo-1550859492-d5da9d8e45f3?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt=""
+                class="w-full h-full object-cover relative"
+              />
+            </div>
+            <div class="project-container">
+              <h1 class="project-text-responsive font-bold">Case One</h1>
+              <p
+                class="opacity-50 project-description-text md:w-[40%] md:mt-12"
+              >
+                Minimal, a simple and intuitive task management application
+                designed to help you stay organized with ease. Our minimalist
+                approach focuses on providing you with a clutter-free experience
+                while efficiently managing your tasks.
+              </p>
+            </div>
+          </a>
+          <a
+            href="https://unsplash.com/photos/purple-and-green-light-gradient-iFu2HILEng8"
+            class=""
+          >
+            <div class="project-image-dimensions">
+              <img
+                src="https://images.unsplash.com/photo-1618397746666-63405ce5d015?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt=""
+                class="relative object-cover w-full h-full"
+              />
+            </div>
+            <div class="project-container">
+              <h1 class="project-text-responsive font-bold">Case One</h1>
+              <p
+                class="opacity-50 project-description-text md:w-[40%] md:mt-12"
+              >
+                Minimal, a simple and intuitive task management application
+                designed to help you stay organized with ease. Our minimalist
+                approach focuses on providing you with a clutter-free experience
+                while efficiently managing your tasks.
+              </p>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <footer class="footer-container">
+        <div class="footer-container-socials">
+          <a href="#" class="">Dribble</a>
+          <a href="#" class="">Twitter</a>
+          <a href="#" class="">Facebook</a>
+          <a href="#" class="">Github</a>
+        </div>
+        <div class="">
+          <a
+            href="mailto:@batman@gmail.com"
+            class="underline underline-offset-2 footer-container-text"
+            >batman@gmail.com</a
+          >
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
