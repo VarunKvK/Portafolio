@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vortex</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html {
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+      }
+      .background {
+        background-color: #f2efe5;
+        margin: 0;
+        box-sizing: border-box;
+        height: auto;
+      }
+      .rale {
+        font-family: "Raleway", sans-serif;
+      }
+      .monster {
+        font-family: "Montserrat Alternates", sans-serif;
+      }
+
+      .text-color {
+        color: #3c3633;
+      }
+
+      .nav-bar {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 14px 18px 10px 18px;
+      }
+
+      .links-hide {
+        display: none;
+      }
+
+      .logo-text {
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      .nav-text {
+        font-size: 14px;
+      }
+
+      .header-div {
+        display: flex;
+        align-items: center;
+        padding: 0 0 0 20px;
+      }
+
+      .para-header {
+        padding-left: 0.5rem;
+        font-size: 2.5rem;
+        font-weight: 600;
+      }
+      .main-header {
+        font-size: 6rem;
+        font-weight: 600;
+        line-height: 5.5rem;
+      }
+
+      .about-div {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .about-text {
+        font-size: 2.5rem;
+        font-weight: 600;
+      }
+      .about-desc-text {
+          font-size: 1.5rem;
+        text-align: left;
+        width: 100%;
+      }
+      .about-desc-div {
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        margin-top: 6rem;
+        padding-left: 20px;
+    }
+    .about-username-text {
+        font-size: 1.5rem;
+        font-weight: 600;
+        text-align: right;
+        padding-right: 1rem;
+        width: 100%;
+    }
+    .work-div {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .work-text {
+      font-size: 2.5rem;
+      font-weight: 600;
+    }
+
+    .work-grid-layout{
+        display: grid;
+        gap:5rem;
+    }
+    .project-image-dimensions {
+        width: 100%;
+        height: 440px;
+      }
+    @media (min-width: 640px) {
+        .header-div {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 0 0 0 20px;
+        }
+        .para-header {
+          padding-left: 0.5rem;
+          font-size: 2.5rem;
+          font-weight: 600;
+        }
+        .main-header {
+          font-size: 6.5rem;
+          font-weight: 600;
+          line-height: 5.5rem;
+        }
+        .about-desc-div {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-top: 8rem;
+          padding-left: 20px;
+        }
+        .about-desc-text {
+          font-size: 1.8rem;
+          text-align: center;
+          width: 80%;
+        }
+        .about-text {
+          font-size: 2.8rem;
+          font-weight: 600;
+        }
+        .about-username-text {
+          font-size: 2rem;
+          font-weight: 600;
+          text-align: center;
+          padding-right: 0px;
+        }
+      }
+
+      @media (min-width: 768px) {
+        .links-hide {
+          display: flex;
+          align-items: center;
+          gap: 2.5rem;
+        }
+        .header-div {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 0 0 0 20px;
+        }
+        .para-header {
+          padding-left: 0.5rem;
+          font-size: 2.5rem;
+          font-weight: 600;
+        }
+        .main-header {
+          font-size: 7.5rem;
+          font-weight: 600;
+          line-height: 8rem;
+        }
+        .about-desc-div {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-top: 8rem;
+          padding-left: 20px;
+        }
+        .about-desc-text {
+          font-size: 2.4rem;
+          text-align: center;
+          width: 90%;
+        }
+        .about-text {
+          font-size: 4rem;
+          font-weight: 600;
+        }
+        .about-username-text {
+          font-size: 2rem;
+          font-weight: 600;
+          text-align: center;
+          padding-right: 0px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="background">
+      <nav class="nav-bar">
+        <div class="philos">
+          <a href="#" class="logo-text monster">Divine.</a>
+        </div>
+        <div class="flex items-center gap-10 rale nav-text">
+          <a href="#about" class="project-link-container hover:opacity-40 transition-opacity duration-500">Home</a>
+          <a href="#creations" class="project-link-container hover:opacity-40 transition-opacity duration-500">Creations</a>
+          <a href="#contact" class="project-link-container hover:opacity-40 transition-opacity duration-500">Contact</a>
+        </div>
+        <div class="links-hide nav-text rale">
+          <a href="#" class="hover:opacity-40 transition-opacity duration-500">Instagram</a>
+          <a href="#" class="hover:opacity-40 transition-opacity duration-500">Twitter</a>
+          <a href="#" class="hover:opacity-40 transition-opacity duration-500">Facebook</a>
+          <a href="#" class="hover:opacity-40 transition-opacity duration-500">Dribble</a>
+        </div>
+      </nav>
+      <section class="h-[92vh] header-div">
+        <div class="rale">
+          <p class="text-color opacity-40 para-header">I'm a</p>
+          <h1 class="text-color main-header">Creative Designer</h1>
+        </div>
+      </section>
+      <section class="mt-[15rem]">
+        <div class="about-div about-text text-color monster">
+          <span class="opacity-50">About/</span>
+          <span class="">About</span>
+          <span class="opacity-50">/About/</span>
+          <span class="">About</span>
+          <span class="opacity-50">/About/</span>
+          <span class="">About</span>
+          <span class="opacity-50">/About/</span>
+          <span class="">About</span>
+          <span class="opacity-50">/About/</span>
+          <span class="">About</span>
+          <span class="opacity-50">/About/</span>
+          <span class="">About</span>
+          <span class="opacity-50">/About/</span>
+          <span class="">About</span>
+        </div>
+        <div class="about-desc-div">
+          <div class="flex items-center flex-col">
+            <p class="text-color rale font-semibold about-desc-text">
+              <span class="text-color opacity-100">"</span>
+              <span class="text-color opacity-40">
+                As Batman, I dedicate my efforts to rescuing individuals from
+                potential time wastage by providing them with assistance and
+                support.As Batman, I dedicate my efforts to rescuing individuals
+                from potential time wastage by providing them with assistance
+                and support.
+              </span>
+              <span class="text-color opacity-100">"</span>
+            </p>
+            <p class="text-color about-username-text">-Batman</p>
+          </div>
+        </div>
+      </section>
+      <section class="mt-[15rem]">
+        <div class="work-div work-text text-color monster">
+            <span class="opacity-50">*Work*</span>
+            <span class="">Work</span>
+            <span class="opacity-50">*Work*</span>
+            <span class="">Work</span>
+            <span class="opacity-50">*Work*</span>
+            <span class="">Work</span>
+            <span class="opacity-50">*Work*</span>
+            <span class="">Work</span>
+            <span class="opacity-50">*Work*</span>
+            <span class="">Work</span>
+            <span class="opacity-50">*Work*</span>
+            <span class="">Work</span>
+            <span class="opacity-50">*Work*</span>
+            <span class="">Work</span>
+          </div>
+          <div class="">
+            <div class="project-image-dimensions">
+                <img
+                  src="https://images.unsplash.com/photo-1579546929518-9e396f3cc809?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  alt=""
+                  class="w-full h-full relative object-cover"
+                />
+              </div>
+          </div>
+      </section>
+    </div>
+  </body>
+</html>

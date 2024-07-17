@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aura</title>
+    <title>{{websiteName}}</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -12,7 +12,7 @@
       rel="stylesheet"
     />
     <style>
-            html {
+      html {
         scroll-behavior: smooth;
       }
       .philos {
@@ -232,7 +232,7 @@
     <div class="background text-color">
       <nav class="nav-bar">
         <div class="philos">
-          <a href="#" class="logo-text">Divine.</a>
+          <a href="#" class="logo-text">{{websiteName}}.</a>
         </div>
         <div class="flex items-center gap-10 mulish nav-text">
           <a href="#about" class="project-link-container">About</a>
@@ -242,118 +242,22 @@
       </nav>
 
       <section class="main-body" id="about">
-        <h1 class="header philos">Photographer</h1>
-        <p class="sub-header opacity-50">
-          I'm Batman, a tech enthusiast with a deep passion for creating
-          innovative SaaS products. My expertise spans across multiple domains,
-          including camera technology, filming, and 3D design. I thrive on
-          turning creative ideas into functional and impactful digital
-          solutions.
-        </p>
+        <h1 class="header philos">{{profession}}</h1>
+        <p class="sub-header opacity-50">{{bio}}</p>
       </section>
 
       <section class="project-section" id="gallery">
         <h1 class="project-header philos">Gallery</h1>
-        <div class="project-grid-layout">
-          <a
-            href="https://unsplash.com/photos/blue-and-pink-light-illustration-LeG68PrXA6Y"
-            class="project-link-container"
-          >
-            <div class="project-image-dimensions">
-              <img
-                src="https://images.unsplash.com/photo-1579546929518-9e396f3cc809?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                alt=""
-                class="w-full h-full relative object-cover"
-              />
-            </div>
-            <div class="project-container">
-              <h1 class="project-text-responsive font-bold">Case One</h1>
-              <p class="opacity-50 project-description-text">
-                Minimal, a simple and intuitive task management application
-                designed to help you stay organized with ease. Our minimalist
-                approach focuses on providing you with a clutter-free experience
-                while efficiently managing your tasks.
-              </p>
-            </div>
-          </a>
-          <a
-            href="https://unsplash.com/photos/purple-white-and-orange-light-tZCrFpSNiIQ href"
-            class="project-link-container"
-          >
-            <div class="project-image-dimensions">
-              <img
-                src="https://images.unsplash.com/photo-1604076913837-52ab5629fba9?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                alt=""
-                class="w-full h-full object-cover relative"
-              />
-            </div>
-            <div class="project-container">
-              <h1 class="project-text-responsive font-bold">Case Two</h1>
-              <p class="opacity-50 project-description-text">
-                Minimal, a simple and intuitive task management application
-                designed to help you stay organized with ease. Our minimalist
-                approach focuses on providing you with a clutter-free experience
-                while efficiently managing your tasks.
-              </p>
-            </div>
-          </a>
-          <a
-            href="https://unsplash.com/photos/a-blurry-image-of-a-rainbow-colored-background-C_NJKfnTR5A"
-            class="project-link-container"
-          >
-            <div class="project-image-dimensions">
-              <img
-                src="https://images.unsplash.com/photo-1550859492-d5da9d8e45f3?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                alt=""
-                class="w-full h-full object-cover relative"
-              />
-            </div>
-            <div class="project-container">
-              <h1 class="project-text-responsive font-bold">Case Three</h1>
-              <p class="opacity-50 project-description-text">
-                Minimal, a simple and intuitive task management application
-                designed to help you stay organized with ease. Our minimalist
-                approach focuses on providing you with a clutter-free experience
-                while efficiently managing your tasks.
-              </p>
-            </div>
-          </a>
-          <a
-            href="https://unsplash.com/photos/purple-and-green-light-gradient-iFu2HILEng8"
-            class="project-link-container"
-          >
-            <div class="project-image-dimensions">
-              <img
-                src="https://images.unsplash.com/photo-1618397746666-63405ce5d015?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                alt=""
-                class="relative object-cover w-full h-full"
-              />
-            </div>
-            <div class="project-container">
-              <h1 class="project-text-responsive font-bold">Case Four</h1>
-              <p class="opacity-50 project-description-text">
-                Minimal, a simple and intuitive task management application
-                designed to help you stay organized with ease. Our minimalist
-                approach focuses on providing you with a clutter-free experience
-                while efficiently managing your tasks.
-              </p>
-            </div>
-          </a>
-        </div>
+        <div class="project-grid-layout">{{projects}}</div>
       </section>
 
       <footer class="footer-container" id="contact">
-        <div class="footer-container-socials">
-          <a href="#" class="">Dribble</a>
-          <a href="#" class="">Twitter</a>
-          <a href="#" class="">Facebook</a>
-          <a href="#" class="">Github</a>
-        </div>
+        <div class="footer-container-socials">{{socials}}</div>
         <div class="">
           <a
-            href="mailto:@batman@gmail.com"
+            href="mailto:{{email}}"
             class="underline underline-offset-2 footer-container-text"
-            >batman@gmail.com</a
+            >{{email}}</a
           >
         </div>
       </footer>

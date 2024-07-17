@@ -12,6 +12,9 @@
       rel="stylesheet"
     />
     <style>
+      html {
+        scroll-behavior: smooth;
+      }
       .background {
         background-color: #000;
         padding: 10px 20px 0px 20px;
@@ -38,11 +41,11 @@
         line-height: 1.25rem;
       }
 
-      .cases-text-responsive {
+      .project-text-responsive {
         font-size: 50px;
       }
 
-      .cases-description-text {
+      .project-description-text {
         font-size: 0.875rem;
         line-height: 1.25rem;
       }
@@ -59,6 +62,9 @@
       .project-image-dimensions {
         width: 100%;
         height: 440px;
+      }
+      .project-link-container {
+        display: block;
       }
 
       .space-between-div {
@@ -94,10 +100,10 @@
           font-size: 1.5rem;
           line-height: 2rem;
         }
-        .cases-text-responsive {
+        .project-text-responsive {
           font-size: 90px;
         }
-        .cases-description-text {
+        .project-description-text {
           font-size: 1rem;
           line-height: 1.5rem;
         }
@@ -105,7 +111,7 @@
           display: grid;
           gap: 90px;
         }
-        .cases-container {
+        .project-container {
           display: flex;
           align-items: center;
           justify-content: space-between;
@@ -216,7 +222,7 @@
         <div class="project-grid-layout q-font">
           <a
             href="https://unsplash.com/photos/blue-and-pink-light-illustration-LeG68PrXA6Y"
-            class=""
+            class="project-link-container"
           >
             <div class="project-image-dimensions">
               <img
@@ -225,9 +231,11 @@
                 class="w-full h-full relative object-cover"
               />
             </div>
-            <div class="cases-container">
-              <h1 class="cases-text-responsive font-bold">Case One</h1>
-              <p class="opacity-50 cases-description-text md:w-[40%] md:mt-10">
+            <div class="project-container">
+              <h1 class="project-text-responsive font-bold">Case One</h1>
+              <p
+                class="opacity-50 project-description-text md:w-[40%] md:mt-10"
+              >
                 Minimal, a simple and intuitive task management application
                 designed to help you stay organized with ease. Our minimalist
                 approach focuses on providing you with a clutter-free experience
@@ -237,7 +245,7 @@
           </a>
           <a
             href="https://unsplash.com/photos/purple-white-and-orange-light-tZCrFpSNiIQ href"
-            class=""
+            class="project-link-container"
           >
             <div class="project-image-dimensions">
               <img
@@ -246,9 +254,11 @@
                 class="w-full h-full object-cover relative"
               />
             </div>
-            <div class="cases-container">
+            <div class="project-container">
               <h1 class="project-text-responsive font-bold">Case One</h1>
-              <p class="opacity-50 cases-description-text md:w-[40%] md:mt-12">
+              <p
+                class="opacity-50 project-description-text md:w-[40%] md:mt-12"
+              >
                 Minimal, a simple and intuitive task management application
                 designed to help you stay organized with ease. Our minimalist
                 approach focuses on providing you with a clutter-free experience
@@ -258,7 +268,7 @@
           </a>
           <a
             href="https://unsplash.com/photos/a-blurry-image-of-a-rainbow-colored-background-C_NJKfnTR5A"
-            class=""
+            class="project-link-container"
           >
             <div class="project-image-dimensions">
               <img
@@ -267,9 +277,11 @@
                 class="w-full h-full object-cover relative"
               />
             </div>
-            <div class="cases-container">
-              <h1 class="cases-text-responsive font-bold">Case One</h1>
-              <p class="opacity-50 cases-description-text md:w-[40%] md:mt-12">
+            <div class="project-container">
+              <h1 class="project-text-responsive font-bold">Case One</h1>
+              <p
+                class="opacity-50 project-description-text md:w-[40%] md:mt-12"
+              >
                 Minimal, a simple and intuitive task management application
                 designed to help you stay organized with ease. Our minimalist
                 approach focuses on providing you with a clutter-free experience
@@ -279,7 +291,7 @@
           </a>
           <a
             href="https://unsplash.com/photos/purple-and-green-light-gradient-iFu2HILEng8"
-            class=""
+            class="project-link-container"
           >
             <div class="project-image-dimensions">
               <img
@@ -288,9 +300,11 @@
                 class="relative object-cover w-full h-full"
               />
             </div>
-            <div class="cases-container">
-              <h1 class="cases-text-responsive font-bold">Case One</h1>
-              <p class="opacity-50 cases-description-text md:w-[40%] md:mt-12">
+            <div class="project-container">
+              <h1 class="project-text-responsive font-bold">Case One</h1>
+              <p
+                class="opacity-50 project-description-text md:w-[40%] md:mt-12"
+              >
                 Minimal, a simple and intuitive task management application
                 designed to help you stay organized with ease. Our minimalist
                 approach focuses on providing you with a clutter-free experience
@@ -317,10 +331,10 @@
             >batmanatnight@gmail.com</a
           >
           <div class="flex items-center justify-between w-full">
-            <a href="#" class="">Dribble</a>
-            <a href="#" class="">Twitter</a>
-            <a href="#" class="">Facebook</a>
-            <a href="#" class="">Github</a>
+            <a href="#" class="project-link-container">Dribble</a>
+            <a href="#" class="project-link-container">Twitter</a>
+            <a href="#" class="project-link-container">Facebook</a>
+            <a href="#" class="project-link-container">Github</a>
           </div>
         </div>
       </section>

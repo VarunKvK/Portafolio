@@ -79,7 +79,7 @@ const ProcessPage = () => {
     const projectsContainer = userData.portfolioInfo.projects
       .map(
         (project) => `
-      <a href="${project.url}" target="_blank class="">
+      <a href="${project.url}" target="_blank" class="project-link-container">
   <div class="project-image-dimensions">
     <img
       src="${project.project_image_url}"
@@ -87,9 +87,9 @@ const ProcessPage = () => {
       class="object-cover w-full h-full"
     />
   </div>
-   <div class="cases-container items-start">
-    <h1 class="cases-text-responsive font-bold">${project.name}</h1>
-    <p class="opacity-50 cases-description-text md:w-[40%]">
+   <div class="project-container items-start">
+    <h1 class="project-text-responsive font-bold">${project.name}</h1>
+    <p class="opacity-50 project-description-text md:w-[40%]">
       ${project.description}
     </p>
   </div>
@@ -140,8 +140,8 @@ const ProcessPage = () => {
         </div>
       ) : (
         <div className="w-full grid gap-[20px] p-8">
-          <div className="p-8 rounded-[30px] bg-[#121515] border border-[#282f30] w-full flex items-center justify-between">
-            <h1 className="text-[#F1F1F1] text-4xl font-bold">
+          <div className="p-8 rounded-[30px] bg-[#121515] border border-[#282f30] w-full flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <h1 className="text-[#F1F1F1] text-3xl md:text-4xl font-bold">
               Have a <span className="italic font-semibold">"good"</span> look
               at it!
             </h1>
