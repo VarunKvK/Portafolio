@@ -68,9 +68,9 @@ const ProcessPage = () => {
     const skillsContainer = userData.portfolioInfo.skills
       .map(
         (skills) => `
-    <div class="flex items-center justify-between px-3 border-b border-white pb-4">
-      <p class="q-font font-bold skill-text">${skills.skill}</p>
-      <p class="oswald opacity-50 skill-text">${skills.level}</p>
+    <div class="skill-container-div">
+      <p class="font-bold skill-text">${skills.skill}</p>
+      <p class="opacity-50 skill-level-text">${skills.level}</p>
     </div>
   `
       )

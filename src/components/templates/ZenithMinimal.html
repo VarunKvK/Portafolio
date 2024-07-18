@@ -74,6 +74,25 @@
       .header-spacing {
         padding-top: 9rem;
       }
+      .skill-container-div {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 2rem;
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+        border-bottom: 3px solid #ffff;
+      }
+      .skill-text {
+        font-size: 1.5rem;
+        line-height: 2rem;
+        font-family: "Quattrocento", serif;
+      }
+      .skill-level-text {
+        font-size: 1.5rem;
+        line-height: 2rem;
+        font-family: "Oswald", sans-serif;
+      }
       @media (min-width: 640px) {
         .bio-width {
           width: 85%;
@@ -95,10 +114,6 @@
         }
         .text-responsive {
           font-size: 106px;
-        }
-        .skill-text {
-          font-size: 1.5rem;
-          line-height: 2rem;
         }
         .project-text-responsive {
           font-size: 90px;
@@ -186,30 +201,22 @@
 
       <section class="space-between-div text-white w-full grid gap-[5rem]">
         <h1 class="oswald text-responsive">Skilled At</h1>
-        <div class="grid grid-cols-2 gap-10">
-          <div
-            class="flex items-center justify-between px-3 border-b border-white pb-4"
-          >
-            <p class="q-font font-bold skill-text">Java</p>
-            <p class="oswald opacity-50 skill-text">Beginner</p>
+        <div class="grid gap-10">
+          <div class="skill-container-div">
+            <p class="font-bold skill-text">Java</p>
+            <p class="opacity-50 skill-level-text">Beginner</p>
           </div>
-          <div
-            class="flex items-center justify-between px-3 border-b border-white pb-4"
-          >
-            <p class="q-font font-bold skill-text">NodeJs</p>
-            <p class="oswald opacity-50 skill-text">Advanced</p>
+          <div class="skill-container-div">
+            <p class="font-bold skill-text">NodeJs</p>
+            <p class="opacity-50 skill-level-text">Advanced</p>
           </div>
-          <div
-            class="flex items-center justify-between px-3 border-b border-white pb-4"
-          >
-            <p class="q-font font-bold skill-text">Python</p>
-            <p class="oswald opacity-50 skill-text">Intermediate</p>
+          <div class="skill-container-div">
+            <p class="font-bold skill-text">Python</p>
+            <p class="opacity-50 skill-level-text">Intermediate</p>
           </div>
-          <div
-            class="flex items-center justify-between px-3 border-b border-white pb-4"
-          >
-            <p class="q-font font-bold skill-text">Batman</p>
-            <p class="oswald opacity-50 skill-text">Ultra Pro</p>
+          <div class="skill-container-div">
+            <p class="font-bold skill-text">Batman</p>
+            <p class="opacity-50 skill-level-text">Ultra Pro</p>
           </div>
         </div>
       </section>

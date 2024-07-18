@@ -119,7 +119,7 @@ const PreviewPage = () => {
           )}
         </div>
         {!templateHTML && <Loader progress={progress} />}
-        <div className="rounded-[30px] h-[100vh] overflow-y-auto">
+        <div className="rounded-[30px] h-[100vh] overflow-y-auto overflow-x-hidden">
           <div dangerouslySetInnerHTML={{ __html: templateHTML }} />
         </div>
       </div>

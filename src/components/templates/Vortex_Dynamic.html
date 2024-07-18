@@ -1,9 +1,13 @@
+<!-- //Need to change the design overflo -->
+<!-- //Need to change the design overflo -->
+<!-- //Need to change the design overflo -->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vortex</title>
+    <title>{{websiteName}}</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -393,7 +397,7 @@
     <div class="background">
       <nav class="nav-bar">
         <div class="monster text-color">
-          <a href="#" class="logo-text monster">Divine.</a>
+          <a href="#" class="logo-text monster">{{websiteName}}.</a>
         </div>
         <div class="flex items-center gap-10 rale nav-text">
           <a
@@ -413,24 +417,13 @@
           >
         </div>
         <div class="links-hide nav-text rale">
-          <a href="#" class="text-color hover:opacity-40 transition-opacity duration-500"
-            >Instagram</a
-          >
-          <a href="#" class="text-color hover:opacity-40 transition-opacity duration-500"
-            >Twitter</a
-          >
-          <a href="#" class="text-color hover:opacity-40 transition-opacity duration-500"
-            >Facebook</a
-          >
-          <a href="#" class="text-color hover:opacity-40 transition-opacity duration-500"
-            >Dribble</a
-          >
+          {{socials}}
         </div>
       </nav>
       <section class="h-[92vh] header-div">
         <div class="rale">
           <p class="text-color opacity-40 para-header">I'm a</p>
-          <h1 class="text-color main-header">Creative Designer</h1>
+          <h1 class="text-color main-header">{{profession}}</h1>
         </div>
       </section>
       <section class="margin">
@@ -455,15 +448,11 @@
             <p class="text-color rale font-semibold about-desc-text">
               <span class="text-color opacity-100">"</span>
               <span class="text-color opacity-40">
-                As Batman, I dedicate my efforts to rescuing individuals from
-                potential time wastage by providing them with assistance and
-                support.As Batman, I dedicate my efforts to rescuing individuals
-                from potential time wastage by providing them with assistance
-                and support.
+               {{bio}}
               </span>
               <span class="text-color opacity-100">"</span>
             </p>
-            <p class="text-color about-username-text rale">-Batman</p>
+            <p class="text-color about-username-text rale">-{{username}}</p>
           </div>
         </div>
       </section>
@@ -485,102 +474,7 @@
           <span class="">Work</span>
         </div>
         <div class="project-div">
-          <a
-            href="https://unsplash.com/photos/blue-and-pink-light-illustration-LeG68PrXA6Y"
-            class=""
-          >
-            <div class="project-image-dimensions">
-              <img
-                src="https://images.unsplash.com/photo-1579546929518-9e396f3cc809?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                alt=""
-                class="image"
-              />
-            </div>
-            <div class="project-container">
-              <h1 class="text-color project-text-responsive">Project One</h1>
-              <p class="text-color opacity-40 project-description-text">
-                Welcome to Minimal, a simple and intuitive task management
-                application designed to help you stay organized with ease. Our
-                minimalist approach focuses on providing you with a clutter-free
-                experienceWelcome to Minimal, a simple and intuitive task
-                management application designed to help you stay organized with
-                ease. Our minimalist approach focuses on providing you with a
-                clutter-free experience
-              </p>
-            </div>
-          </a>
-          <a
-            href="https://unsplash.com/photos/purple-white-and-orange-light-tZCrFpSNiIQ"
-            class=""
-          >
-            <div class="project-image-dimensions">
-              <img
-                src="https://images.unsplash.com/photo-1604076913837-52ab5629fba9?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                alt=""
-                class="w-full h-full relative object-cover image"
-              />
-            </div>
-            <div class="project-container">
-              <h1 class="text-color project-text-responsive">Project Two</h1>
-              <p class="text-color opacity-40 project-description-text">
-                Welcome to Minimal, a simple and intuitive task management
-                application designed to help you stay organized with ease. Our
-                minimalist approach focuses on providing you with a clutter-free
-                experienceWelcome to Minimal, a simple and intuitive task
-                management application designed to help you stay organized with
-                ease. Our minimalist approach focuses on providing you with a
-                clutter-free experience
-              </p>
-            </div>
-          </a>
-          <a
-            href="https://unsplash.com/photos/a-blurry-image-of-a-rainbow-colored-background-C_NJKfnTR5A"
-            class=""
-          >
-            <div class="project-image-dimensions">
-              <img
-                src="https://images.unsplash.com/photo-1550859492-d5da9d8e45f3?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                alt=""
-                class="w-full h-full relative object-cover image"
-              />
-            </div>
-            <div class="project-container">
-              <h1 class="text-color project-text-responsive">Project Three</h1>
-              <p class="text-color opacity-40 project-description-text">
-                Welcome to Minimal, a simple and intuitive task management
-                application designed to help you stay organized with ease. Our
-                minimalist approach focuses on providing you with a clutter-free
-                experienceWelcome to Minimal, a simple and intuitive task
-                management application designed to help you stay organized with
-                ease. Our minimalist approach focuses on providing you with a
-                clutter-free experience
-              </p>
-            </div>
-          </a>
-          <a
-            href="https://unsplash.com/photos/purple-and-green-light-gradient-iFu2HILEng8"
-            class=""
-          >
-            <div class="project-image-dimensions">
-              <img
-                src="https://images.unsplash.com/photo-1618397746666-63405ce5d015?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                alt=""
-                class="w-full h-full relative object-cover image"
-              />
-            </div>
-            <div class="project-container">
-              <h1 class="text-color project-text-responsive">Project Four</h1>
-              <p class="text-color opacity-40 project-description-text">
-                Welcome to Minimal, a simple and intuitive task management
-                application designed to help you stay organized with ease. Our
-                minimalist approach focuses on providing you with a clutter-free
-                experienceWelcome to Minimal, a simple and intuitive task
-                management application designed to help you stay organized with
-                ease. Our minimalist approach focuses on providing you with a
-                clutter-free experience
-              </p>
-            </div>
-          </a>
+          {{projects}}
         </div>
       </section>
       <section class="margin">
@@ -601,22 +495,7 @@
           <span class="">Skills</span>
         </div>
         <div class="skill-container">
-          <div class="skill-container-div">
-            <h1 class="font-semibold skill-text">Figma</h1>
-            <p class="skill-level-text opacity-40">Advanced</p>
-          </div>
-          <div class="skill-container-div">
-            <h1 class="font-semibold skill-text">Photoshop</h1>
-            <p class="skill-level-text opacity-40">Intermediate</p>
-          </div>
-          <div class="skill-container-div">
-            <h1 class="font-semibold skill-text">Framer</h1>
-            <p class="skill-level-text opacity-40">Beginner</p>
-          </div>
-          <div class="skill-container-div">
-            <h1 class="font-semibold skill-text">Wix</h1>
-            <p class="skill-level-text opacity-40">Beginner</p>
-          </div>
+          {{skills}}
         </div>
       </section>
       <footer class="margin">
@@ -647,29 +526,10 @@
           </h1>
           <div class="footer-links text-color">
             <div class="flex items-center gap-[2rem]">
-              <a
-                href="#"
-                class="hover:opacity-40 transition-opacity duration-500"
-                >Instagram</a
-              >
-              <a
-                href="#"
-                class="hover:opacity-40 transition-opacity duration-500"
-                >Twitter</a
-              >
-              <a
-                href="#"
-                class="hover:opacity-40 transition-opacity duration-500"
-                >Facebook</a
-              >
-              <a
-                href="#"
-                class="hover:opacity-40 transition-opacity duration-500"
-                >Dribble</a
-              >
+              {{socials}}
             </div>
-            <a href="mailto:batmanatnight@gmail.com" class=""
-              >batmanatnight@gmail.com</a
+            <a href="mailto:{{email}}" class=""
+              >{{email}}</a
             >
           </div>
         </div>
