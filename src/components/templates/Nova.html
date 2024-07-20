@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap"
+      rel="stylesheet"
+    />
+    <title>Nova</title>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      .background {
+        background-color: #140600;
+        margin: 0;
+        box-sizing: border-box;
+        height: auto;
+      }
+      .navbar-div {
+        padding: 10px 10px 10px 10px;
+      }
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        padding: 0 10px 5px 10px;
+        border-bottom: 2px solid #ffdd00;
+        transition: color 500ms ease-in-out;
+      }
+      .logo {
+        transition: color 500ms ease-in-out;
+        color: #ffdd00;
+        font-family: "Syne", sans-serif;
+        font-weight: bold;
+        font-size: 16px;
+      }
+      .nav-links {
+        width: 50%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+      .nav {
+        transition: color 500ms ease-in-out;
+        color: #ffdd00;
+        font-size: 12px;
+        opacity: 40%;
+        font-family: "Syne", sans-serif;
+        font-weight: bold;
+        transition: all ease-in-out 500ms;
+      }
+      .nav:hover {
+        opacity: 100%;
+        color: #ffdd00;
+        transition: color 500ms ease-in-out;
+      }
+      .main-header {
+        width: 100%;
+        height: 85vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 40px 20px 20px 20px;
+      }
+      .main-header-text {
+        font-size: 36px;
+        font-family: "Syne", sans-serif;
+        font-weight: bold;
+        color: #ffdd00;
+        transition: color 500ms ease-in-out;
+      }
+      .main-sub-header {
+        font-size: 16px;
+        font-family: "Syne", sans-serif;
+        font-weight: bold;
+        color: #ffdd00;
+        opacity: 40%;
+        text-align: right;
+        transition: color 500ms ease-in-out;
+      }
+      .project-section {
+        display: grid;
+        gap: 5rem;
+        padding: 0 20px 0 20px;
+        align-items: center;
+        margin-top: 2rem;
+      }
+      .project-div {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        border-bottom: 2px solid #ffdd00;
+        transition: color 500ms ease-in-out;
+        padding: 0 0 10px 0;
+      }
+      .project-image-dimensions {
+        width: 100%;
+        height: 600px;
+      }
+      .img {
+        border-radius: 20px;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: relative;
+      }
+      .project-container {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        margin-top: 5px;
+        padding: 5px 20px 5px 20px;
+      }
+      .project-text-responsive {
+        transition: color 500ms ease-in-out;
+        font-size: 24px;
+        font-family: "Syne", sans-serif;
+        color: #ffdd00;
+        font-weight: bold;
+      }
+      .project-description-text {
+        font-size: 12px;
+        font-family: "Syne", sans-serif;
+        color: #ffdd00;
+        opacity: 40%;
+        font-weight: bold;
+        transition: color 500ms ease-in-out;
+      }
+      .about-header {
+        width: 100%;
+        height: 85vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 40px 20px 20px 20px;
+        margin-top: 5rem;
+      }
+      .about-header-text {
+        font-size: 36px;
+        font-family: "Syne", sans-serif;
+        font-weight: bold;
+        color: #ffdd00;
+        transition: color 500ms ease-in-out;
+      }
+      .about-sub-header {
+        font-size: 16px;
+        font-family: "Syne", sans-serif;
+        font-weight: bold;
+        color: #ffdd00;
+        opacity: 40%;
+        text-align: right;
+        transition: color 500ms ease-in-out;
+      }
+      .footer-header {
+        width: 100%;
+        height: 85vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 40px 20px 20px 20px;
+        margin-top: 5.5rem;
+      }
+      .footer-header-text {
+        display: block;
+        font-size: 36px;
+        font-family: "Syne", sans-serif;
+        font-weight: bold;
+        color: #ffdd00;
+        transition: color 500ms ease-in-out;
+      }
+      .footer-header-text-II {
+        display: none;
+      }
+      .footer-link-div {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: end;
+        color: #ffdd00;
+        font-family: "Syne", sans-serif;
+        font-weight: bold;
+        gap: 2rem;
+        font-size: 16px;
+      }
+      @media (min-width: 768px) {
+        .navbar-div {
+          padding: 10px 20px 10px 20px;
+        }
+        .navbar {
+          display: flex;
+          justify-content: space-between;
+          align-items: end;
+          padding: 0 20px 5px 20px;
+          border-bottom: 2px solid #ff2f00;
+        }
+        .logo {
+          color: #ff2f00;
+          font-family: "Syne", sans-serif;
+          font-weight: bold;
+          font-size: 20px;
+        }
+        .nav-links {
+          width: 30%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+        }
+        .nav {
+          color: #ff2f00;
+          font-size: 16px;
+          opacity: 40%;
+          font-family: "Syne", sans-serif;
+          font-weight: bold;
+        }
+        .nav:hover {
+          opacity: 100%;
+          color: #ff2f00;
+        }
+        .main-header {
+          width: 100%;
+          height: 50vh;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          padding: 60px 40px 20px 40px;
+        }
+        .main-header-text {
+          font-size: 50px;
+          font-family: "Syne", sans-serif;
+          font-weight: bold;
+          color: #ff2f00;
+        }
+        .main-sub-header {
+          width: 40%;
+          font-size: 20px;
+          font-family: "Syne", sans-serif;
+          font-weight: bold;
+          color: #ff2f00;
+          opacity: 40%;
+          text-align: right;
+        }
+        .project-section {
+          display: grid;
+          gap: 5rem;
+          padding: 0 10px 0 10px;
+          align-items: center;
+          margin-top: 2rem;
+        }
+        .project-div {
+          display: flex;
+          flex-direction: row;
+          align-items: start;
+          border-bottom: none;
+          padding: 0 5px 10px 5px;
+        }
+        .project-image-dimensions {
+          width: 100%;
+          height: 600px;
+        }
+        .img {
+          border-radius: 20px;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          position: relative;
+        }
+        .project-container {
+          display: flex;
+          flex-direction: column;
+          height: 80vh;
+          justify-content: space-between;
+          margin-top: 5px;
+          padding: 5px 20px 5px 20px;
+        }
+        .project-text-responsive {
+          font-size: 36px;
+          font-family: "Syne", sans-serif;
+          color: #ff2f00;
+          font-weight: bold;
+          transition: all 500ms ease-in-out;
+          position: relative;
+          left: 0rem;
+        }
+        .project-text-responsive:hover {
+          left: 1rem;
+        }
+        .project-description-text {
+          font-size: 16px;
+          font-family: "Syne", sans-serif;
+          color: #ff2f00;
+          opacity: 40%;
+          font-weight: bold;
+          transition: all 500ms ease-in-out;
+        }
+        .project-description-text:hover {
+          color: #ff2f00;
+          opacity: 100%;
+        }
+        .about-header {
+          width: 100%;
+          height: 100vh;
+          display: flex;
+          align-items: center;
+          flex-direction: row;
+          justify-content: space-between;
+          padding: 60px 40px 20px 40px;
+        }
+        .about-header-text {
+          font-size: 50px;
+          font-family: "Syne", sans-serif;
+          font-weight: bold;
+          color: #ff2f00;
+        }
+        .about-sub-header {
+          width: 40%;
+          font-size: 20px;
+          font-family: "Syne", sans-serif;
+          font-weight: bold;
+          color: #ff2f00;
+          opacity: 40%;
+          text-align: right;
+        }
+        .footer-header {
+          width: 100%;
+          height: 85vh;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          padding: 40px 20px 20px 20px;
+          margin-top: 5.5rem;
+        }
+        .footer-header-text {
+          display: none;
+        }
+        .footer-header-text-II {
+          display: block;
+          font-size: 56px;
+          font-family: "Syne", sans-serif;
+          font-weight: bold;
+          text-align: right;
+          color: #ff2f00;
+          transition: color 500ms ease-in-out;
+        }
+        .footer-link-div {
+          width: 100%;
+          display: flex;
+          color: #ff2f00;
+          font-family: "Syne", sans-serif;
+          gap: 2rem;
+          font-size: 16px;
+        }
+      }
+      @media (min-width: 640px) {
+        .navbar-div {
+          padding: 10px 10px 10px 10px;
+        }
+        .navbar {
+          display: flex;
+          justify-content: space-between;
+          align-items: end;
+          padding: 0 10px 5px 10px;
+          border-bottom: 2px solid #ff2f00;
+          transition: all 500ms ease-in-out;
+        }
+        .logo {
+          transition: all 500ms ease-in-out;
+          color: #ff2f00;
+          font-family: "Syne", sans-serif;
+          font-weight: bold;
+          font-size: 16px;
+        }
+        .nav-links {
+          width: 50%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+        }
+        .nav {
+          transition: color 500ms ease-in-out;
+          color: #ff2f00;
+          font-size: 12px;
+          opacity: 40%;
+          font-family: "Syne", sans-serif;
+          font-weight: bold;
+          transition: all ease-in-out 500ms;
+        }
+        .nav:hover {
+          opacity: 100%;
+          color: #ff2f00;
+          transition: all 500ms ease-in-out;
+        }
+        .main-header {
+          width: 100%;
+          height: 50vh;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          padding: 40px 20px 20px 20px;
+        }
+        .main-header-text {
+          font-size: 36px;
+          font-family: "Syne", sans-serif;
+          font-weight: bold;
+          color: #ff2f00;
+          transition: color 500ms ease-in-out;
+        }
+        .main-sub-header {
+          font-size: 16px;
+          font-family: "Syne", sans-serif;
+          font-weight: bold;
+          color: #ff2f00;
+          opacity: 40%;
+          text-align: right;
+          transition: all 500ms ease-in-out;
+        }
+        .project-section {
+          display: grid;
+          gap: 5rem;
+          padding: 0 20px 0 20px;
+          align-items: center;
+          margin-top: 2rem;
+        }
+        .project-div {
+          display: flex;
+          flex-direction: column;
+          align-items: start;
+          border-bottom: 2px solid #ff2f00;
+          transition: all 500ms ease-in-out;
+          padding: 0 0 10px 0;
+        }
+        .project-image-dimensions {
+          width: 100%;
+          height: 600px;
+        }
+        .img {
+          border-radius: 20px;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          position: relative;
+        }
+        .project-container {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+          height: 15vh;
+          margin-top: 5px;
+          padding: 5px 20px 5px 20px;
+        }
+        .project-text-responsive {
+          transition: color 500ms ease-in-out;
+          font-size: 24px;
+          font-family: "Syne", sans-serif;
+          transition: all 500ms ease-in-out;
+          color: #ff2f00;
+          font-weight: bold;
+          position: relative;
+          left: 0rem;
+        }
+        .project-text-responsive:hover {
+          left: 1rem;
+        }
+        .project-description-text {
+          width: 50%;
+          font-size: 16px;
+          font-family: "Syne", sans-serif;
+          color: #ff2f00;
+          opacity: 40%;
+          font-weight: bold;
+          transition: all 500ms ease-in-out;
+        }
+        .project-description-text:hover {
+          color: #ff2f00;
+          opacity: 100%;
+        }
+        .about-header {
+          width: 100%;
+          height: 80vh;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          padding: 40px 20px 20px 20px;
+          margin-top: 5rem;
+        }
+        .about-header-text {
+          width: 100%;
+          font-size: 36px;
+          font-family: "Syne", sans-serif;
+          font-weight: bold;
+          color: #ff2f00;
+          transition: color 500ms ease-in-out;
+        }
+        .about-sub-header {
+          width: 100%;
+          font-size: 15px;
+          font-family: "Syne", sans-serif;
+          font-weight: bold;
+          color: #ff2f00;
+          opacity: 40%;
+          text-align: right;
+          transition: color 500ms ease-in-out;
+        }
+        .footer-header {
+          width: 100%;
+          height: 85vh;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          padding: 40px 20px 20px 20px;
+          margin-top: 5.5rem;
+        }
+        .footer-header-text-II {
+          display: block;
+          font-size: 46px;
+          font-family: "Syne", sans-serif;
+          font-weight: bold;
+          color: #ff2f00;
+          transition: color 500ms ease-in-out;
+        }
+        .footer-header-text {
+          display: none;
+        }
+        .footer-link-div {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: end;
+          color: #ff2f00;
+          font-family: "Syne", sans-serif;
+          font-weight: bold;
+          gap: 2rem;
+          font-size: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="background">
+      <div class="navbar-div">
+        <nav class="navbar">
+          <div class="">
+            <a href="#" class="logo">Batman.</a>
+          </div>
+          <div class="nav-links">
+            <a href="" class="nav">home</a>
+            <a href="" class="nav">crafts</a>
+            <a href="" class="nav">contact</a>
+          </div>
+        </nav>
+      </div>
+      <section class="main-header">
+        <h1 class="main-header-text">Hello, there!</h1>
+        <p class="main-sub-header">
+          I'm Batman, a versatile professional who can do a bit of everything .I
+          thrive on challenges and caffeine, and I love turning chaos into order
+          with a dash of humor.
+        </p>
+      </section>
+      <section class="project-section">
+        <a
+          href="https://unsplash.com/photos/flatiron-building-new-york-Sfn8f32ZIj0"
+          target="_blank"
+          class="project-div"
+        >
+          <div class="project-image-dimensions">
+            <img
+              src="https://images.unsplash.com/photo-1445699269025-bcc2c8f3faee?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt=""
+              class="img"
+            />
+          </div>
+          <div class="project-container">
+            <h1 class="project-text-responsive">Project One</h1>
+            <p class="project-description-text">
+              Welcome to Minimal, a simple and intuitive task management
+              application designed to help you stay organized with ease. Our
+              minimalist approach focuses on providing you with a clutter-free
+              experience
+            </p>
+          </div>
+        </a>
+        <a
+          href="https://unsplash.com/photos/a-building-with-wavy-lines-on-it-against-a-blue-sky-T5nXYXCf50I"
+          target="_blank"
+          class="project-div"
+        >
+          <div class="project-image-dimensions">
+            <img
+              src="https://images.unsplash.com/photo-1493397212122-2b85dda8106b?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt=""
+              class="img"
+            />
+          </div>
+          <div class="project-container">
+            <h1 class="project-text-responsive">Project Two</h1>
+            <p class="project-description-text">
+              Welcome to Minimal, a simple and intuitive task management
+              application designed to help you stay organized with ease. Our
+              minimalist approach focuses on providing you with a clutter-free
+              experience
+            </p>
+          </div>
+        </a>
+        <a
+          href="https://unsplash.com/photos/architectural-photography-of-modern-building-opFPVxMRpP8"
+          target="_blank"
+          class="project-div"
+        >
+          <div class="project-image-dimensions">
+            <img
+              src="https://images.unsplash.com/photo-1496564203457-11bb12075d90?q=80&w=1900&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt=""
+              class="img"
+            />
+          </div>
+          <div class="project-container">
+            <h1 class="project-text-responsive">Project Three</h1>
+            <p class="project-description-text">
+              Welcome to Minimal, a simple and intuitive task management
+              application designed to help you stay organized with ease. Our
+              minimalist approach focuses on providing you with a clutter-free
+              experience
+            </p>
+          </div>
+        </a>
+        <a
+          href="https://unsplash.com/photos/clear-glass-and-black-building-kWvsIYwUkJs"
+          target="_blank"
+          class="project-div"
+        >
+          <div class="project-image-dimensions">
+            <img
+              src="https://images.unsplash.com/photo-1461638189575-2a947ecbf2cb?q=80&w=1906&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt=""
+              class="img"
+            />
+          </div>
+          <div class="project-container">
+            <h1 class="project-text-responsive">Project Four</h1>
+            <p class="project-description-text">
+              Welcome to Minimal, a simple and intuitive task management
+              application designed to help you stay organized with ease. Our
+              minimalist approach focuses on providing you with a clutter-free
+              experience
+            </p>
+          </div>
+        </a>
+      </section>
+      <section class="about-header">
+        <h1 class="about-header-text">Who am I?</h1>
+        <p class="about-sub-header">
+          As Batman, I dedicate my efforts to rescuing individuals from
+          potential time wastage by providing them with assistance and support.
+          As Batman, I dedicate my efforts to rescuing individuals from
+          potential time wastage by providing them with assistance and support.
+        </p>
+      </section>
+      <section class="footer-header">
+        <h1 class="footer-header-text">Let's Connect!</h1>
+        <h1 class="footer-header-text-II">How to Connect!</h1>
+        <div class="footer-link-div">
+          <a href="#" class="">Instagram</a>
+          <a href="#" class="">Twitter</a>
+          <a href="#" class="">Facebook</a>
+          <a href="#" class="">Github</a>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
+
+
+
+<!-- Need to fix the font size  -->
+<!-- Need to fix the font size  -->
+<!-- Need to fix the font size  -->
+<!-- Need to fix the font size  -->
+<!-- Need to fix the font size  -->

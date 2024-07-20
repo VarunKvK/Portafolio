@@ -84,10 +84,10 @@ const ProcessPage = () => {
     <img
       src="${project.project_image_url}"
       alt="${project.name}"
-      class="object-cover w-full h-full"
+      class="img object-cover w-full h-full"
     />
   </div>
-   <div class="project-container items-start">
+   <div class="project-container items-center">
     <h1 class="project-text-responsive font-bold">${project.name}</h1>
     <p class="opacity-50 project-description-text md:w-[40%]">
       ${project.description}
