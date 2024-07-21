@@ -74,16 +74,17 @@
         line-height: 5.5rem;
       }
 
-      .about-div {
+      .about-div, .work-div, .skill-div {
         width: 100%;
         display: flex;
+        justify-content: start;
         gap: 14px;
-        align-items: center;
-        justify-content: center;
+        padding-left: 30px;
       }
-      .about-text {
-        font-size: 2rem;
+      .work-text, .about-text, .skill-text-div {
+        font-size: 4rem;
         font-weight: 600;
+        text-align: left;
       }
       .about-desc-text {
         font-size: 1.5rem;
@@ -104,18 +105,6 @@
         padding-right: 1rem;
         width: 100%;
       }
-      .work-div {
-        width: 100%;
-        display: flex;
-        gap: 14px;
-        align-items: center;
-        justify-content: center;
-      }
-      .work-text {
-        font-size: 2.5rem;
-        font-weight: 600;
-      }
-
       .work-grid-layout {
         display: grid;
         gap: 5rem;
@@ -158,17 +147,6 @@
         line-height: 1.3rem;
         width: 100%;
       }
-      .skill-div {
-        width: 100%;
-        display: flex;
-        gap: 14px;
-        align-items: center;
-        justify-content: center;
-      }
-      .skill-text-div {
-        font-size: 2.5rem;
-        font-weight: 600;
-      }
       .skill-container {
         width: 100%;
         display: grid;
@@ -199,8 +177,6 @@
         width: 100%;
         display: flex;
         gap: 14px;
-        align-items: center;
-        justify-content: center;
       }
       .footer-text-div {
         width: 100%;
@@ -249,10 +225,19 @@
           text-align: center;
           width: 80%;
         }
-        .about-text {
-          font-size: 2.8rem;
-          font-weight: 600;
-        }
+        
+      .about-div, .work-div, .skill-div {
+        width: 100%;
+        display: flex;
+        justify-content:center;
+        gap: 14px;
+        padding-left: 30px;
+      }
+        .work-text, .about-text, .skill-text-div {
+        font-size: 6rem;
+        font-weight: 600;
+        text-align: center;
+      }
         .about-username-text {
           font-size: 2rem;
           font-weight: 600;
@@ -333,7 +318,7 @@
           width: 100%;
           display: flex;
           justify-content: space-between;
-          align-items: start;
+          align-items: center;
           gap: 4rem;
           padding: 1rem;
         }
@@ -386,6 +371,18 @@
           justify-content: space-between;
           padding: 0 20px 1rem 20px;
         }
+        .work-text, .about-text, .skill-text-div {
+        font-size: 7rem;
+        font-weight: 600;
+        text-align: center;
+      }
+      
+      .about-div, .work-div, .skill-div {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding-left: 30px;
+      }
       }
     </style>
   </head>
@@ -435,20 +432,7 @@
       </section>
       <section class="margin">
         <div class="about-div about-text text-color monster">
-          <span class="opacity-50">About/</span>
-          <span class="">About</span>
-          <span class="opacity-50">/About/</span>
-          <span class="">About</span>
-          <span class="opacity-50">/About/</span>
-          <span class="">About</span>
-          <span class="opacity-50">/About/</span>
-          <span class="">About</span>
-          <span class="opacity-50">/About/</span>
-          <span class="">About</span>
-          <span class="opacity-50">/About/</span>
-          <span class="">About</span>
-          <span class="opacity-50">/About/</span>
-          <span class="">About</span>
+          <h1 class="">About</h1>
         </div>
         <div class="about-desc-div">
           <div class="flex items-center flex-col">
@@ -469,20 +453,7 @@
       </section>
       <section class="margin">
         <div class="work-div work-text text-color monster">
-          <span class="opacity-50">*Work*</span>
-          <span class="">Work</span>
-          <span class="opacity-50">*Work*</span>
-          <span class="">Work</span>
-          <span class="opacity-50">*Work*</span>
-          <span class="">Work</span>
-          <span class="opacity-50">*Work*</span>
-          <span class="">Work</span>
-          <span class="opacity-50">*Work*</span>
-          <span class="">Work</span>
-          <span class="opacity-50">*Work*</span>
-          <span class="">Work</span>
-          <span class="opacity-50">*Work*</span>
-          <span class="">Work</span>
+          <h1 class="">Creations</h1>
         </div>
         <div class="project-div">
           <a
@@ -585,20 +556,7 @@
       </section>
       <section class="margin">
         <div class="skill-div skill-text-div text-color monster">
-          <span class="opacity-50">"Skills"</span>
-          <span class="">Skills</span>
-          <span class="opacity-50">"Skills"</span>
-          <span class="">Skills</span>
-          <span class="opacity-50">"Skills"</span>
-          <span class="">Skills</span>
-          <span class="opacity-50">"Skills"</span>
-          <span class="">Skills</span>
-          <span class="opacity-50">"Skills"</span>
-          <span class="">Skills</span>
-          <span class="opacity-50">"Skills"</span>
-          <span class="">Skills</span>
-          <span class="opacity-50">"Skills"</span>
-          <span class="">Skills</span>
+          <h1 class="">Skills</h1>
         </div>
         <div class="skill-container">
           <div class="skill-container-div">
@@ -620,26 +578,6 @@
         </div>
       </section>
       <footer class="margin">
-        <div class="footer-div skill-text-div text-color monster">
-          <span class="opacity-50">;End;</span>
-          <span class="">End</span>
-          <span class="opacity-50">;End;</span>
-          <span class="">End</span>
-          <span class="opacity-50">;End;</span>
-          <span class="">End</span>
-          <span class="opacity-50">;End;</span>
-          <span class="">End</span>
-          <span class="opacity-50">;End;</span>
-          <span class="">End</span>
-          <span class="opacity-50">;End;</span>
-          <span class="">End</span>
-          <span class="opacity-50">;End;</span>
-          <span class="">End</span>
-          <span class="opacity-50">;End;</span>
-          <span class="">End</span>
-          <span class="opacity-50">;End;</span>
-          <span class="">End</span>
-        </div>
         <div class="footer-text-div">
           <h1 class="text-color footer-text-header rale">
             <span class="opacity-40"> This is </span>

@@ -10,7 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap"
       rel="stylesheet"
     />
-    <title>Nova</title>
+    <title>{{websiteName}}</title>
     <style>
       html {
         scroll-behavior: smooth;
@@ -377,7 +377,7 @@
       <div class="navbar-div">
         <nav class="navbar">
           <div class="">
-            <a href="#" class="logo">Batman.</a>
+            <a href="#" class="logo">{{websiteName}}.</a>
           </div>
           <div class="nav-links">
             <a href="" class="nav">home</a>
@@ -389,118 +389,25 @@
       <section class="main-header">
         <h1 class="main-header-text">Hello, there!</h1>
         <p class="main-sub-header">
-          I'm Batman, a versatile professional who can do a bit of everything .I
+          I'm {{username}}, a versatile professional who can do a bit of everything .I
           thrive on challenges and caffeine, and I love turning chaos into order
           with a dash of humor.
         </p>
       </section>
       <section class="project-section">
-        <a
-          href="https://unsplash.com/photos/flatiron-building-new-york-Sfn8f32ZIj0"
-          target="_blank"
-          class="project-div"
-        >
-          <div class="project-image-dimensions">
-            <img
-              src="https://images.unsplash.com/photo-1445699269025-bcc2c8f3faee?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt=""
-              class="img"
-            />
-          </div>
-          <div class="project-container">
-            <h1 class="project-text-responsive">Project One</h1>
-            <p class="project-description-text">
-              Welcome to Minimal, a simple and intuitive task management
-              application designed to help you stay organized with ease. Our
-              minimalist approach focuses on providing you with a clutter-free
-              experience
-            </p>
-          </div>
-        </a>
-        <a
-          href="https://unsplash.com/photos/a-building-with-wavy-lines-on-it-against-a-blue-sky-T5nXYXCf50I"
-          target="_blank"
-          class="project-div"
-        >
-          <div class="project-image-dimensions">
-            <img
-              src="https://images.unsplash.com/photo-1493397212122-2b85dda8106b?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt=""
-              class="img"
-            />
-          </div>
-          <div class="project-container">
-            <h1 class="project-text-responsive">Project Two</h1>
-            <p class="project-description-text">
-              Welcome to Minimal, a simple and intuitive task management
-              application designed to help you stay organized with ease. Our
-              minimalist approach focuses on providing you with a clutter-free
-              experience
-            </p>
-          </div>
-        </a>
-        <a
-          href="https://unsplash.com/photos/architectural-photography-of-modern-building-opFPVxMRpP8"
-          target="_blank"
-          class="project-div"
-        >
-          <div class="project-image-dimensions">
-            <img
-              src="https://images.unsplash.com/photo-1496564203457-11bb12075d90?q=80&w=1900&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt=""
-              class="img"
-            />
-          </div>
-          <div class="project-container">
-            <h1 class="project-text-responsive">Project Three</h1>
-            <p class="project-description-text">
-              Welcome to Minimal, a simple and intuitive task management
-              application designed to help you stay organized with ease. Our
-              minimalist approach focuses on providing you with a clutter-free
-              experience
-            </p>
-          </div>
-        </a>
-        <a
-          href="https://unsplash.com/photos/clear-glass-and-black-building-kWvsIYwUkJs"
-          target="_blank"
-          class="project-div"
-        >
-          <div class="project-image-dimensions">
-            <img
-              src="https://images.unsplash.com/photo-1461638189575-2a947ecbf2cb?q=80&w=1906&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt=""
-              class="img"
-            />
-          </div>
-          <div class="project-container">
-            <h1 class="project-text-responsive">Project Four</h1>
-            <p class="project-description-text">
-              Welcome to Minimal, a simple and intuitive task management
-              application designed to help you stay organized with ease. Our
-              minimalist approach focuses on providing you with a clutter-free
-              experience
-            </p>
-          </div>
-        </a>
+        {{projects}}
       </section>
       <section class="about-header">
         <h1 class="about-header-text">Who am I?</h1>
         <p class="about-sub-header">
-          As Batman, I dedicate my efforts to rescuing individuals from
-          potential time wastage by providing them with assistance and support.
-          As Batman, I dedicate my efforts to rescuing individuals from
-          potential time wastage by providing them with assistance and support.
+          {{bio}}
         </p>
       </section>
       <section class="footer-header">
         <h1 class="footer-header-text">Let's Connect!</h1>
         <h1 class="footer-header-text-II">How to Connect!</h1>
         <div class="footer-link-div">
-          <a href="#" class="">Instagram</a>
-          <a href="#" class="">Twitter</a>
-          <a href="#" class="">Facebook</a>
-          <a href="#" class="">Github</a>
+          {{socials}}
         </div>
       </section>
     </div>
