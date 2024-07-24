@@ -61,6 +61,7 @@
         display: flex;
         align-items: center;
         padding: 0 0 0 20px;
+        height: 92vh;
       }
 
       .para-header {
@@ -196,6 +197,13 @@
         gap: 1rem;
         padding: 20px 0 20px 2rem;
       }
+      .footer-link-div {
+        /* flex items-center gap-[2rem] */
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+      }
+      
       @media (min-width: 640px) {
         .header-div {
           display: flex;
@@ -413,7 +421,7 @@
           {{socials}}
         </div>
       </nav>
-      <section class="h-[92vh] header-div">
+      <section class="header-div">
         <div class="rale">
           <p class="text-color opacity-40 para-header">I'm a</p>
           <h1 class="text-color main-header">{{profession}}</h1>
@@ -459,7 +467,7 @@
             <span class="text-color opacity-100">me</span>
           </h1>
           <div class="footer-links text-color">
-            <div class="flex items-center gap-[2rem]">
+            <div class="footer-link-div">
               {{socials}}
             </div>
             <a href="mailto:{{email}}" class=""

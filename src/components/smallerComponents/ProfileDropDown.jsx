@@ -14,7 +14,7 @@ import { SignOutButton } from "@clerk/nextjs";
 import { useEffect, useState } from "react";
 
 export function Dropdown() {
-  const [user,setUser]=useState()
+  const [user, setUser] = useState({});
   useEffect(() => {
     const fetchUserData = async () => {
       const response = await fetch("/api/usersData", {
@@ -25,11 +25,12 @@ export function Dropdown() {
         },
       });
       const userData = await response.json();
-      setUser(userData)
+      setUser(userData);
     };
-
+    
     fetchUserData();
   }, []);
+
 
   return (
     <DropdownMenu>
@@ -44,12 +45,12 @@ export function Dropdown() {
       <DropdownMenuContent className="w-56 mr-4">
         {!user ? (
           <DropdownMenuLabel>My Account</DropdownMenuLabel>
-        ):(
+        ) : (
           <DropdownMenuLabel>Welcome {user.firstName}!</DropdownMenuLabel>
         )}
         <DropdownMenuSeparator />
         <DropdownMenuItem>
-          <Link href="/dashboard" className="flex items-center w-full">
+          <Link href={`/dashboard/${user._id}`} className="flex items-center w-full">
             <User className="mr-2 h-4 w-4" />
             <span>Profile</span>
           </Link>

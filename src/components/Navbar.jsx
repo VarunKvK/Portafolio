@@ -20,6 +20,23 @@ export default function Navbar() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const { isSignedIn } = useAuth();
   const { setTheme } = useTheme();
+  const [user, setUser] = useState({});
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      const response = await fetch("/api/usersData", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      });
+      const userData = await response.json();
+      setUser(userData);
+    };
+    
+    fetchUserData();
+  }, []);
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
@@ -189,7 +206,7 @@ export default function Navbar() {
           )}
           <li className="px-4 py-2">
             <Link
-              href="/dashboard"
+              href={`/dashboard/${user._id}`}
               className="text-[#f1f1f1] dark:text-[#282F30] font-semibold text-[16px]"
               onClick={toggleSidebar}
             >
