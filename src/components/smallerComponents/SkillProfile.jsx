@@ -99,7 +99,7 @@ const SkillProfile = ({ userSkills }) => {
   return (
     <div className="bg-[#f7f7f7] border border-white/50 dark:bg-[#15191a] dark:border-[#282F30]/40 p-8 rounded-[2rem] md:w-[70%] w-[95%]">
       <div className="flex items-end justify-between mb-2.5">
-        <h1 className="text-[#282F30] dark:text-[#f1f1f1] font-semibold">
+        <h1 className="text-[#282F30]/50 dark:text-[#f1f1f1]/50 font-semibold">
           Skills you have added
         </h1>
         <Dialog>
@@ -110,7 +110,7 @@ const SkillProfile = ({ userSkills }) => {
             <Button variant="outline" className="flex items-center gap-1">
               <Pencil className="w-4" />
               <span className="md:block hidden">
-              Edit Profile
+              Edit Skills
               </span>
             </Button>
           </DialogTrigger>

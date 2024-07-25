@@ -1,6 +1,7 @@
 "use client";
 
 import Loader from "@/components/smallerComponents/Loader";
+import ProjectProfile from "@/components/smallerComponents/ProjectProfile";
 import SkillProfile from "@/components/smallerComponents/SkillProfile";
 import UserProfile from "@/components/smallerComponents/UserProfile";
 import { useParams } from "next/navigation";
@@ -37,9 +38,10 @@ const Dashboard = () => {
       {isLoading ? (
         <Loader value={progress}/>
       ) : (
-        <div className="max-w-4xl mx-auto flex flex-col justify-center items-center gap-2">
+        <div className="max-w-8xl mx-auto flex flex-col justify-center items-center gap-2">
         <UserProfile userData={user} />
         <SkillProfile userSkills={user.portfolioInfo.skills}/>
+        <ProjectProfile userProjects={user.portfolioInfo.projects}/>
         </div>
       )}
     </div>

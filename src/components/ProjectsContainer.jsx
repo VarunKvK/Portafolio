@@ -29,7 +29,7 @@ const ProjectsContainer = ({ projectData, error, removeProject }) => {
   return (
     <div className="dark:bg-[#121515] bg-[#f0f0f0] w-full rounded-lg p-6 flex items-end gap-4 overflow-y-auto max-w-6xl">
       {projectData.map((values, index) => (
-        <div className="relative w-[20%] h-[20%]">
+        <div key={values.title} className="relative w-[20%] h-[20%]">
             <Button
               onClick={() => removeProject(index)}
               className="absolute right-2 top-2 bg-[#121515] dark:bg-[#f1f1f1] p-2 rounded-md"

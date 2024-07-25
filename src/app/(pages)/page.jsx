@@ -117,14 +117,14 @@ export default function Home() {
           <h2 className="text-[#282F30] dark:text-[#f1f1f1] font-bold text-[40px] md:text-[54px]">
             How It Works?
           </h2>
-          <div className="grid grid-rows-3 gap-[10px] h-full mt-[40px]">
+          <div className="grid grid-rows-3 gap-[10px] h-full mt-[40px] sm:gap-[60px]">
             <div className="md:flex-row flex-col justify-between flex items-center h-full gap-[10px]">
               <WorkingContainer
                 workingTitle="Choose a Template"
                 workingDescription="Select from our carefully curated collection of professional designs. Offering a wide variety of templates for various professions."
               />
               <Image
-                className="rounded-[30px] w-[450px] md:w-[300px]"
+                className="rounded-[30px] w-full md:w-[300px]"
                 src={TemplateGroup}
                 alt="Template Selection"
                 width={290}
