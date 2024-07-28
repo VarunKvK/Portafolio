@@ -1,16 +1,13 @@
 "use client";
 import AlertComponent from "@/components/smallerComponents/AlertComponent";
-import SaveData from "@/components/smallerComponents/WebsiteDataToSave";
-import ImageLoader from "@/components/smallerComponents/WebsiteProcessLoader";
-import { Home } from "lucide-react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
-const ProcessPage = () => {
-  const { template_id } = useParams();
+const PortafolioPage = () => {
   const [templateHTML, setTemplateHTML] = useState("");
   const [error, setError] = useState(null);
+  const [templateId, setTemplateId] = useState();
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -31,6 +28,19 @@ const ProcessPage = () => {
       }
     };
 
+    const fetchTemplateId = async () => {
+      const response = await fetch(`/api/userTemplateData`);
+      if (!response.ok) {
+        throw new Error("Failed to fetch template id");
+      }
+      const template = await response.json();
+      const templateId = template.websiteData.templateId;
+      console.log(template)
+      setTemplateId(templateId);
+    };
+
+    fetchTemplateId();
+
     const fetchTemplate = async (userData) => {
       try {
         const response = await fetch("/api/templateFetcher", {
@@ -38,12 +48,13 @@ const ProcessPage = () => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ template_id }),
+          body: JSON.stringify({ templateId }),
         });
         if (!response.ok) {
           throw new Error("Failed to fetch template data");
         }
         const templateData = await response.json();
+        console.log(templateData)
         const { dynamic_code_url } = templateData;
         const codeResponse = await fetch(dynamic_code_url);
         if (!codeResponse.ok) {
@@ -58,12 +69,13 @@ const ProcessPage = () => {
     };
 
     fetchUserData();
-  }, [template_id]);
+  }, [templateId]);
 
   const injectUserData = (code, userData) => {
     if (!userData.portfolioInfo) {
       throw new Error("Portfolio information is missing in user data");
     }
+
     const skillsContainer = userData.portfolioInfo.skills
       .map(
         (skills) => `
@@ -120,7 +132,6 @@ const ProcessPage = () => {
       .replace(/{{email}}/g, userData.email);
   };
 
-
   return (
     <div className="bg-[#141718]">
       {error ? (
@@ -133,27 +144,8 @@ const ProcessPage = () => {
             />
           </div>
         </div>
-      ) : !templateHTML ? (
-        <div className="w-full h-screen flex justify-center items-center">
-          <ImageLoader />
-        </div>
       ) : (
-        <div className="w-full grid gap-[20px] p-8">
-          <div className="p-8 rounded-[30px] bg-[#121515] border border-[#282f30] w-full flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-            <h1 className="text-[#F1F1F1] text-3xl md:text-4xl font-bold">
-              Have a <span className="italic font-semibold">"good"</span> look
-              at it!
-            </h1>
-            <div className="flex gap-4 items-center">
-              <Link
-                href={"/"}
-                className="flex items-end bg-[#1c2122] border border-[#4e5c5e] text-[#f1f1f1] p-2 rounded-lg"
-              >
-                <Home className="w-6" />
-              </Link>
-              <SaveData dialog_title={"Like your website?"} id={template_id} />
-            </div>
-          </div>
+        <div className="">
           <div dangerouslySetInnerHTML={{ __html: templateHTML }} />
         </div>
       )}
@@ -161,4 +153,4 @@ const ProcessPage = () => {
   );
 };
 
-export default ProcessPage;
+export default PortafolioPage;

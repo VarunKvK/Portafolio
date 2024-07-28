@@ -13,8 +13,8 @@ import { Label } from "@/components/ui/label";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-export default function SaveData({ dialog_title, id }) {
-    const router=useRouter()
+export default function SaveData({ dialog_title, id, websiteName }) {
+  const router=useRouter()
   const [name, setWebsiteName] = useState("");
   const [description, setDescription] = useState("");
 
@@ -38,7 +38,8 @@ export default function SaveData({ dialog_title, id }) {
       body: JSON.stringify({
         name: name,
         description: description,
-        template_id:id
+        template_id:id,
+        websiteName:websiteName
       }),
 
     });

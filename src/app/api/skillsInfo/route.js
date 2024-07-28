@@ -16,6 +16,7 @@ export async function POST(req) {
   try {
     const data = await req.json();
     const skills = data.skills;
+    console.log(data)
     const profile = await User.findOne({ clerkId: user.id });
 
     if (!profile) {

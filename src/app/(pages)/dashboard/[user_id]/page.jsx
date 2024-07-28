@@ -1,6 +1,7 @@
 "use client";
 
 import Loader from "@/components/smallerComponents/Loader";
+import PortfolioCreatedProfile from "@/components/smallerComponents/PortfolioCreatedProfile";
 import ProjectProfile from "@/components/smallerComponents/ProjectProfile";
 import SkillProfile from "@/components/smallerComponents/SkillProfile";
 import UserProfile from "@/components/smallerComponents/UserProfile";
@@ -42,6 +43,7 @@ const Dashboard = () => {
         <UserProfile userData={user} />
         <SkillProfile userSkills={user.portfolioInfo.skills}/>
         <ProjectProfile userProjects={user.portfolioInfo.projects}/>
+        <PortfolioCreatedProfile/>
         </div>
       )}
     </div>

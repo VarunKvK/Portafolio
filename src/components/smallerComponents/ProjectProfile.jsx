@@ -23,11 +23,11 @@ const ProjectProfile = ({ userProjects }) => {
   const [projectData, setProjectData] = useState(userProjects);
   const [error, setError] = useState();
 
-  useEffect(() => {
-    if (projectData.length < 4) {
-      router.push("/create");
-    }
-  }, [projectData, router]);
+  // useEffect(() => {
+  //   if (projectData.length < 4) {
+  //     router.push("/create");
+  //   }
+  // }, [projectData, router]);
 
   function removeProject(index) {
     setProjectData((prevData) => prevData.filter((_, i) => i !== index));

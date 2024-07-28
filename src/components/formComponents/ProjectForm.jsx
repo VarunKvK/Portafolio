@@ -176,7 +176,7 @@ export default function ProjectForm() {
     setProjectData((prevData) => prevData.filter((_, i) => i !== index));
   }
 
-  const isProjectLimitReached = projectData.length >= 4;
+  // const isProjectLimitReached = projectData.length >= 4;
 
   return (
     <div className="py-4 mt-8 rounded-lg flex flex-col gap-6">
@@ -247,10 +247,11 @@ export default function ProjectForm() {
         <div className="flex flex-col gap-1">
           <Button
             onClick={handleSubmit(createProjectData)}
-            className={`bg-[#F1C40F] rounded-lg px-14 ${
-              isProjectLimitReached ? "opacity-50 cursor-not-allowed" : ""
-            }`}
-            disabled={isProjectLimitReached}
+            className="bg-[#F1C40F] rounded-lg px-14"
+            // className={`bg-[#F1C40F] rounded-lg px-14 ${
+            //   isProjectLimitReached ? "opacity-50 cursor-not-allowed" : ""
+            // }`}
+            // disabled={isProjectLimitReached}
           >
             <span className="">Create</span>
           </Button>
@@ -258,10 +259,12 @@ export default function ProjectForm() {
         <div className="flex flex-col gap-1">
           <Button
             onClick={handleSaveProject}
-            className={`bg-[#F1C40F] rounded-lg px-14 ${
-              !isProjectLimitReached ? "opacity-50 cursor-not-allowed" : ""
-            }`}
-            disabled={!isProjectLimitReached}
+            className="bg-[#F1C40F] rounded-lg px-14"
+
+            // className={`bg-[#F1C40F] rounded-lg px-14 ${
+            // isProjectLimitReached ? "opacity-50 cursor-not-allowed" : ""
+            // }`}
+            // disabled={!isProjectLimitReached}
           >
             {saving ? (
               <span className="">Saving...</span>

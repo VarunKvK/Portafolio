@@ -1,6 +1,24 @@
 import connectToDatabase from "@/lib/mongodb";
+import Template from "@/models/Templates";
 import UserTemplate from "@/models/UsersTemplateData";
 import { currentUser } from "@clerk/nextjs/server";
+
+export async function GET(req) {
+  try {
+    const user = await currentUser();
+    if (!user) {
+      return new Response(JSON.stringify({ error: "Unauthorized" }), { status: 401 });
+    }
+    await connectToDatabase();
+    const { id } = user;
+
+    const userTemplateData = await UserTemplate.findOne({ userId: id });
+    return new Response(JSON.stringify(userTemplateData), { status: 200 });
+  } catch (error) {
+    console.error("Error saving user data:", error);
+    return new Response(JSON.stringify({ error: "Internal Server Error" }), { status: 500 });
+  }
+}
 
 export async function POST(req) {
   try {
@@ -19,11 +37,20 @@ export async function POST(req) {
     const emailAddress = user.emailAddresses[0].emailAddress;
 
     const existingUser = await UserTemplate.findOne({ userId: id });
+    const specificTemplate = await Template.findOne({ _id: template_id });
+
+    if (!specificTemplate) {
+      return new Response(JSON.stringify({ error: "Template not found" }), { status: 404 });
+    }
 
     const newWebsiteData = {
       websiteName: name,
       description: description,
-      templateUrl: `/processing/${template_id}`,
+      templateUrl: `/${name}`,
+      templateId: specificTemplate._id.toString(), // Convert ObjectId to string
+      templatName: specificTemplate.template_name,
+      templateType: specificTemplate.template_type,
+      templateImageUrl: specificTemplate.template_image_url,
     };
 
     if (existingUser) {
