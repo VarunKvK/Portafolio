@@ -1,13 +1,11 @@
 "use client";
 import AlertComponent from "@/components/smallerComponents/AlertComponent";
-import Link from "next/link";
-import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const PortafolioPage = () => {
   const [templateHTML, setTemplateHTML] = useState("");
   const [error, setError] = useState(null);
-  const [templateId, setTemplateId] = useState();
+  const [templateId, setTemplateId] = useState(null);
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -28,38 +26,33 @@ const PortafolioPage = () => {
       }
     };
 
-    const fetchTemplateId = async () => {
-      const response = await fetch(`/api/userTemplateData`);
-      if (!response.ok) {
-        throw new Error("Failed to fetch template id");
-      }
-      const template = await response.json();
-      const templateId = template.websiteData.templateId;
-      console.log(template)
-      setTemplateId(templateId);
-    };
-
-    fetchTemplateId();
-
     const fetchTemplate = async (userData) => {
       try {
+        const templateId = localStorage.getItem("selectedTemplateId");
+        if (!templateId) {
+          throw new Error("Template ID not found in local storage");
+        }
+
         const response = await fetch("/api/templateFetcher", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ templateId }),
+          body: JSON.stringify({ template_id:templateId }),
         });
+
         if (!response.ok) {
           throw new Error("Failed to fetch template data");
         }
+
         const templateData = await response.json();
-        console.log(templateData)
         const { dynamic_code_url } = templateData;
+
         const codeResponse = await fetch(dynamic_code_url);
         if (!codeResponse.ok) {
           throw new Error("Failed to fetch template code");
         }
+
         let code = await codeResponse.text();
         code = injectUserData(code, userData);
         setTemplateHTML(code);
@@ -69,7 +62,7 @@ const PortafolioPage = () => {
     };
 
     fetchUserData();
-  }, [templateId]);
+  }, []);
 
   const injectUserData = (code, userData) => {
     if (!userData.portfolioInfo) {
@@ -139,7 +132,7 @@ const PortafolioPage = () => {
           <div className="">
             <AlertComponent
               alert_description={error}
-              alert_title={"You have an message from Batman"}
+              alert_title={"You have a message from Batman"}
               className={"bg-red-400 text-red-800 border border-red-700"}
             />
           </div>

@@ -16,6 +16,7 @@ import ProjectsContainer from "../ProjectsContainer";
 import ToolTip from "./ToolTip";
 import Image from "next/image";
 import { Separator } from "../ui/separator";
+import Link from "next/link";
 
 const ProjectProfile = ({ userProjects }) => {
   const router = useRouter();
@@ -66,15 +67,13 @@ const ProjectProfile = ({ userProjects }) => {
               </DialogDescription>
             </DialogHeader>
             <div className="px-[24px] border border-[#282F30] dark:bg-[#121515] dark:border-[#282F30] rounded-lg">
-              <div className="py-4 mt-8 rounded-lg flex flex-col gap-6">
-                <div className="flex flex-col gap-4">
-                  <div className="flex items-end gap-1 md:justify-start justify-center">
+              <div className="py-4 rounded-lg flex flex-col gap-6">
+                <div className="flex flex-col gap-8">
+                  <div className="flex items-end gap-1 justify-between">
                     <h2 className="text-lg font-bold dark:text-[#f1f1f1] text-[#282F30]">
                       Projects you created
                     </h2>
-                    <span className="text-sm dark:text-[#f1f1f1]/50 text-[#282F30]/50">
-                      (You need 4 projects)
-                    </span>
+                    <Link href={"/create"} className="border rounded-md py-2 px-4 border-[#F1C40F] text-[#F1C40F]">Add Projects</Link>
                   </div>
                   <div className="dark:bg-[#121515] bg-[#f0f0f0] w-full rounded-lg grid grid-cols-2 items-end gap-4 overflow-y-auto max-w-6xl">
                     {projectData.map((values, index) => (
@@ -128,6 +127,7 @@ const ProjectProfile = ({ userProjects }) => {
             </ToolTip>
           </div>
         ))}
+
       </div>
     </div>
   );

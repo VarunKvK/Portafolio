@@ -37,7 +37,7 @@ const PortfolioCreatedProfile = () => {
         </h1>
       </div>
       <Separator variant="outline" />
-      <div className="md:grid md:grid-cols-2 flex">
+      <div className="grid md:grid-cols-2 gap-2">
         {portfolioInfo.map((portfolio) => (
           <SavedProjects
             key={portfolio._id}
