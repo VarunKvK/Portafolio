@@ -18,7 +18,7 @@ import { useToast } from "../ui/use-toast";
 import { Separator } from "../ui/separator";
 import Link from "next/link";
 
-const SkillProfile = ({ userSkills }) => {
+const SkillProfile = ({ userSkills,id }) => {
   const { toast } = useToast();
   const [skills, setSkills] = useState(userSkills);
   const [saving, setSaving] = useState(false);
@@ -143,7 +143,7 @@ const SkillProfile = ({ userSkills }) => {
             <Button onClick={handleSaveSkills} type="button" disabled={saving} className="bg-[#F1C40F]">
               Save changes
             </Button>
-            <Link href={"/create"} className="border rounded-md py-2 px-4 border-[#F1C40F] text-[#F1C40F]">Add Skills</Link>
+            <Link href={`/create/${id}`} className="border rounded-md py-2 px-4 border-[#F1C40F] text-[#F1C40F]">Add Skills</Link>
             </div>
           </DialogContent>
         </Dialog>

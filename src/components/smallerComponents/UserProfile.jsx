@@ -198,7 +198,7 @@ const UserProfile = ({ userData }) => {
       </div>
       <Separator className="my-4" />
       <div className="">
-        <p className="text-sm md:text-md md:w-[50%] text-[#f1f1f1]/50">
+        <p className="text-sm md:text-md md:w-[50%] dark:text-[#f1f1f1]/50 text-[#282F30] ">
           {userData.portfolioInfo.bio.bio}
         </p>
       </div>

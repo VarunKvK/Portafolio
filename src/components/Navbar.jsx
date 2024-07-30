@@ -34,7 +34,7 @@ export default function Navbar() {
       const userData = await response.json();
       setUser(userData);
     };
-    
+
     fetchUserData();
   }, []);
 
@@ -47,6 +47,8 @@ export default function Navbar() {
       setSidebarOpen(false);
     }
   };
+
+  console.log(user);
 
   useEffect(() => {
     if (sidebarOpen) {
@@ -103,12 +105,21 @@ export default function Navbar() {
                   </Link>
                 </li>
                 <li className="">
-                  <Link
-                    className="font-semibold text-[16px] text-[#4D5657] dark:text-[#f1f1f1]"
-                    href="/create"
-                  >
-                    Create
-                  </Link>
+                  {!user.portfolioInfo ? (
+                    <Link
+                      className="font-semibold text-[16px] text-[#4D5657] dark:text-[#f1f1f1]"
+                      href="/create"
+                    >
+                      Create
+                    </Link>
+                  ) : (
+                    <Link
+                      className="font-semibold text-[16px] text-[#4D5657] dark:text-[#f1f1f1]"
+                      href={`/create/${user._id}`}
+                    >
+                      Modify
+                    </Link>
+                  )}
                 </li>
                 <li className="">
                   <Link
