@@ -43,7 +43,7 @@ export function SavedProjects({ portfolio, onDelete, id }) {
 
   const handleCopyLink = async () => {
     try {
-      const url = `https://portafolio.app${portfolio.templateUrl}`;
+      const url = `https://createportafolio.vercel.app/${portfolio.templateUrl}`;
       await navigator.clipboard.writeText(url);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
