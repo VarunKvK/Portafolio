@@ -120,7 +120,6 @@ const ProcessPage = () => {
       .replace(/{{email}}/g, userData.email);
   };
 
-
   return (
     <div className="bg-[#141718]">
       {error ? (
@@ -128,7 +127,7 @@ const ProcessPage = () => {
           <div className="">
             <AlertComponent
               alert_description={error}
-              alert_title={"You have an message from Batman"}
+              alert_title={"You have a message from Batman"}
               className={"bg-red-400 text-red-800 border border-red-700"}
             />
           </div>
@@ -141,8 +140,7 @@ const ProcessPage = () => {
         <div className="w-full grid gap-[20px] p-8">
           <div className="p-8 rounded-[30px] bg-[#121515] border border-[#282f30] w-full flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <h1 className="text-[#F1F1F1] text-3xl md:text-4xl font-bold">
-              Have a <span className="italic font-semibold">"good"</span> look
-              at it!
+              Have a <span className="italic font-semibold">&quot;good&quot;</span> look at it!
             </h1>
             <div className="flex gap-4 items-center">
               <Link
