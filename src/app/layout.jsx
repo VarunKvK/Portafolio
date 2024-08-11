@@ -1,10 +1,11 @@
 import { Lato } from "next/font/google";
-import "../../app/globals.css";
+// import "../../app/globals.css";
+import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { ClerkProvider } from "@clerk/nextjs";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
-import { CSPostHogProvider } from "../provider";
+import { CSPostHogProvider } from "./provider";
 
 const lato = Lato({
   subsets: ["latin", "latin-ext"],
@@ -20,8 +21,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <CSPostHogProvider>
-      <ClerkProvider publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}>
+    <ClerkProvider
+      publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
+    >
+      <CSPostHogProvider>
         <html lang="en">
           <body className={lato.className}>
             <ThemeProvider
@@ -36,8 +39,7 @@ export default function RootLayout({ children }) {
             <Toaster />
           </body>
         </html>
-      </ClerkProvider>
-    </CSPostHogProvider>
+      </CSPostHogProvider>
+    </ClerkProvider>
   );
 }
-  

@@ -32,6 +32,9 @@
         font-family: "Oswald", sans-serif;
       }
 
+      .text-bio-responsive{
+        font-size: 10px;
+      }
       .text-responsive {
         font-size: 50px;
       }
@@ -94,6 +97,9 @@
         font-family: "Oswald", sans-serif;
       }
       @media (min-width: 640px) {
+        .skill-div{
+          margin-top: 2rem;
+        }
         .bio-width {
           width: 85%;
         }
@@ -106,6 +112,10 @@
         }
       }
       @media (min-width: 768px) {
+        .logo-div{
+          display: flex;
+          justify-content: start;
+        }
         .header-gap {
           gap: 20rem;
         }
@@ -117,6 +127,7 @@
         }
         .project-text-responsive {
           font-size: 90px;
+          text-align: right;
         }
         .project-description-text {
           font-size: 1rem;
@@ -150,6 +161,7 @@
       }
 
       @media (min-width: 1280px) {
+
         .text-responsive {
           font-size: 180px;
         }
@@ -161,7 +173,7 @@
       <nav
         class="py-[20px] text-white w-full flex flex-col md:flex-row items-center justify-center md:justify-between"
       >
-        <div class="w-full flex justify-center md:justify-normal">
+        <div class="w-full flex justify-center logo-div">
           <a href="#" class="oswald text-center md:text-left text-2xl" id="home"
             >Batman.</a
           >
@@ -186,9 +198,9 @@
         <div
           class="text-white md:flex md:justify-between md:flex-col header-gap w-full"
         >
-          <h1 class="text-responsive oswald md:text-right">Web Developer</h1>
+          <h1 class="project-text-responsive text-responsive oswald">Web Developer</h1>
           <p
-            class="q-font text-sm sm:text-md md:text-md lg:text-lg text-white/40 lg:w-[45%] md:w-[60%] sm:w-[85%]"
+            class="bio-width q-font text-sm text-white/40"
           >
             I'm Batman, a tech enthusiast with a deep passion for creating
             innovative SaaS products. My expertise spans across multiple
@@ -201,7 +213,7 @@
 
       <section class="space-between-div text-white w-full grid gap-[5rem]">
         <h1 class="oswald text-responsive">Skilled At</h1>
-        <div class="grid gap-10">
+        <div class="grid gap-10 skill-div">
           <div class="skill-container-div">
             <p class="font-bold skill-text">Java</p>
             <p class="opacity-50 skill-level-text">Beginner</p>

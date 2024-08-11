@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card, CardDescription, CardTitle } from "@/components/ui/card";
 import {
   DropdownMenu,
@@ -10,10 +10,13 @@ import {
 } from "@/components/ui/dropdown-menu";
 import Image from "next/image";
 import { Button } from "../ui/button";
-import { EllipsisVertical, Eye, Pencil, Trash } from "lucide-react";
+import { EllipsisVertical, Eye, Pencil, Trash, Copy } from "lucide-react";
 import Link from "next/link";
+import { useParams } from "next/navigation";
 
-export function SavedProjects({ portfolio, onDelete }) {
+export function SavedProjects({ portfolio, onDelete, id }) {
+  const [copied, setCopied] = useState(false);
+
   const handleDelete = async () => {
     try {
       const response = await fetch("/api/userTemplateData", {
@@ -25,7 +28,7 @@ export function SavedProjects({ portfolio, onDelete }) {
       });
 
       if (response.ok) {
-        onDelete(portfolio._id); // Notify the parent component about the deletion
+        onDelete(portfolio._id);
       } else {
         console.error("Failed to delete project");
       }
@@ -37,6 +40,18 @@ export function SavedProjects({ portfolio, onDelete }) {
   const handleView = () => {
     localStorage.setItem("selectedTemplateId", portfolio.templateId);
   };
+
+  const handleCopyLink = async () => {
+    try {
+      const url = `https://portafolio.app${portfolio.templateUrl}`;
+      await navigator.clipboard.writeText(url);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error("Failed to copy: ", err);
+    }
+  };
+  
 
   return (
     <Card className="flex flex-col gap-4 w-full bg-[#f7f7f7] border border-white/50 dark:bg-[#15191a] dark:border-[#282F30]/40 p-4 rounded-[2rem] ">
@@ -70,7 +85,12 @@ export function SavedProjects({ portfolio, onDelete }) {
                   </DropdownMenuItem>
                 </Link>
                 <DropdownMenuSeparator />
-                <Link href="/create">
+                <DropdownMenuItem onClick={handleCopyLink} className="flex items-center gap-1">
+                  <Copy className="w-4" />
+                  <span>{copied ? 'Copied!' : 'Copy Link'}</span>
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <Link href={`/create/${id}`}>
                   <DropdownMenuItem className="flex items-center gap-1">
                     <Pencil className="w-4"/>
                     <span>Edit</span>

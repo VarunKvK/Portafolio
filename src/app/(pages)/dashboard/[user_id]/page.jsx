@@ -16,8 +16,8 @@ const Dashboard = () => {
 
   useEffect(() => {
     const fetchUserData = async () => {
-      setIsLoading(true);
       setProgress(90);
+      setIsLoading(true);
       const response = await fetch("/api/userProfileData", {
         method: "POST",
         headers: {
@@ -42,8 +42,8 @@ const Dashboard = () => {
         <div className="max-w-8xl mx-auto flex flex-col justify-center items-center gap-2">
           <UserProfile userData={user} />
           <SkillProfile userSkills={user.portfolioInfo.skills} id={user_id} />
-          <ProjectProfile userProjects={user.portfolioInfo.projects} />
-          <PortfolioCreatedProfile />
+          <ProjectProfile userProjects={user.portfolioInfo.projects} id={user_id}/>
+          <PortfolioCreatedProfile id={user_id}/>
         </div>
       )}
     </div>

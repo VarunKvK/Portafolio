@@ -41,10 +41,18 @@ export default function SaveData({ dialog_title, id, websiteName }) {
         template_id:id,
         websiteName:websiteName
       }),
-
     });
+    const user=await fetch("/api/usersData",{
+      method:"GET",
+      headers:{
+        "Content-Type":"application/json",
+        Accept:"application/json"
+      }
+    })
+
+    const userId=await user.json()
     if(response.ok){
-        router.push("/templates")
+        router.push(`/dashboard/${userId._id}`)
     }
 }
   return (

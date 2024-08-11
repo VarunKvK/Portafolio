@@ -11,6 +11,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { upload } from "@/lib/upload";
+import { useRouter } from "next/navigation";
 import ProjectsContainer from "../ProjectsContainer";
 
 const projectSchema = z.object({
@@ -33,6 +34,7 @@ const projectSchema = z.object({
 });
 
 export default function ProjectForm() {
+  const router = useRouter();
   const { toast } = useToast();
   const [saving, setSaving] = useState(false);
   const [uploading, setUploading] = useState(false);
@@ -58,7 +60,6 @@ export default function ProjectForm() {
 
     const response = await upload(e, (link) => {
       setValue("files", link);
-      console.log(link);
     });
     setUploading(false);
 
@@ -90,7 +91,7 @@ export default function ProjectForm() {
 
   function handleTitleChange(e) {
     const inputValue = e.target.value;
-    if (inputValue.length <= 15) {
+    if (inputValue.length <= 20) {  
       setValue("title", inputValue);
       setTitleCharCount(inputValue.length);
     }
@@ -98,7 +99,7 @@ export default function ProjectForm() {
 
   function handleDescriptionChange(e) {
     const inputValue = e.target.value;
-    if (inputValue.length <= 500) {
+    if (inputValue.length <= 200) {
       setValue("description", inputValue);
       setDescCharCount(inputValue.length);
     }
@@ -113,13 +114,13 @@ export default function ProjectForm() {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
-        body: JSON.stringify(projectData),
+        body: JSON.stringify(data),
       });
-
+  
       if (!response.ok) {
         throw new Error("Failed to save project");
       }
-
+  
       toast({
         title: (
           <div className="flex items-center gap-1">
@@ -130,18 +131,26 @@ export default function ProjectForm() {
           </div>
         ),
       });
+
+      const templateId = localStorage.getItem("selectedTemplateId");
+      if (templateId) {
+        router.push(`/processing/${templateId}`);
+        localStorage.removeItem("selectedTemplateId");
+      }
+  
     } catch (error) {
       toast({
         title: (
           <div className="flex items-center gap-1">
             <AlertTriangle className="dark:text-[#f1f1f1] text-[#f44336]" />
             <p className="dark:text-[#f1f1f1] text-[#f44336]">
-              Error Saving Project
+              Error Saving Project: {error.message}  {/* Display the error message */}
             </p>
           </div>
         ),
         variant: "destructive",
       });
+      setError(error.message); // Ensure error is a string
     } finally {
       setSaving(false);
     }
@@ -172,11 +181,53 @@ export default function ProjectForm() {
     setDescCharCount(0);
   }
 
-  function removeProject(index) {
-    setProjectData((prevData) => prevData.filter((_, i) => i !== index));
+  async function handleDeleteProject(index) {
+    const project = projectData[index];
+    try {
+      const response = await fetch("/api/projectInfo", {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({ title: project.name }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to delete project");
+      }
+
+      toast({
+        title: (
+          <div className="flex items-center gap-1">
+            <CheckCircle className="dark:text-[#f1f1f1] text-[#282f30]" />
+            <p className="dark:text-[#f1f1f1] text-[#282f30]">
+              Project Deleted Successfully
+            </p>
+          </div>
+        ),
+      });
+
+      setProjectData((prevData) =>
+        prevData.filter((_, i) => i !== index)
+      );
+
+    } catch (error) {
+      toast({
+        title: (
+          <div className="flex items-center gap-1">
+            <AlertTriangle className="dark:text-[#f1f1f1] text-[#f44336]" />
+            <p className="dark:text-[#f1f1f1] text-[#f44336]">
+              Error Deleting Project: {error.message}
+            </p>
+          </div>
+        ),
+        variant: "destructive",
+      });
+    }
   }
 
-  // const isProjectLimitReached = projectData.length >= 4;
+  const isProjectLimitReached = projectData.length <= 2;
 
   return (
     <div className="py-4 mt-8 rounded-lg flex flex-col gap-6">
@@ -259,12 +310,12 @@ export default function ProjectForm() {
         <div className="flex flex-col gap-1">
           <Button
             onClick={handleSaveProject}
-            className="bg-[#F1C40F] rounded-lg px-14"
+            // className="bg-[#F1C40F] rounded-lg px-14"
 
-            // className={`bg-[#F1C40F] rounded-lg px-14 ${
-            // isProjectLimitReached ? "opacity-50 cursor-not-allowed" : ""
-            // }`}
-            // disabled={!isProjectLimitReached}
+            className={`bg-[#F1C40F] rounded-lg px-14 ${
+            isProjectLimitReached ? "opacity-50 cursor-not-allowed" : ""
+            }`}
+            disabled={!isProjectLimitReached}
           >
             {saving ? (
               <span className="">Saving...</span>
@@ -284,7 +335,7 @@ export default function ProjectForm() {
         <ProjectsContainer
           projectData={projectData}
           error={error}
-          removeProject={removeProject}
+          removeProject={handleDeleteProject}
         />
       </div>
     </div>

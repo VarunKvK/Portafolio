@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { Separator } from "../ui/separator";
 import { SavedProjects } from "./SavedProjectsProfile";
+import Loader from "./Loader";
 
-const PortfolioCreatedProfile = () => {
+const PortfolioCreatedProfile = ({id}) => {
   const [userTemplate, setUserTemplate] = useState(null);
   const [portfolioInfo, setPortfolio] = useState(null);
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     const fetchUserTemplateData = async () => {
       const response = await fetch("/api/userTemplateData");
+      setProgress(90);
       const userTemplateData = await response.json();
       if (response.ok) {
         setUserTemplate(userTemplateData);
@@ -26,7 +29,7 @@ const PortfolioCreatedProfile = () => {
   };
 
   if (!portfolioInfo) {
-    return <div>Loading...</div>; // or some other loading indicator
+    return <div><Loader progress={progress}/></div>; // or some other loading indicator
   }
 
   return (
@@ -43,6 +46,7 @@ const PortfolioCreatedProfile = () => {
             key={portfolio._id}
             portfolio={portfolio}
             onDelete={handleDelete}
+            id={id}
           />
         ))}
       </div>

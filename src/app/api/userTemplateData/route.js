@@ -15,7 +15,7 @@ export async function GET(req) {
     const userTemplateData = await UserTemplate.findOne({ userId: id });
     return new Response(JSON.stringify(userTemplateData), { status: 200 });
   } catch (error) {
-    console.error("Error saving user data:", error);
+    console.error("Error retrieving user data:", error);
     return new Response(JSON.stringify({ error: "Internal Server Error" }), { status: 500 });
   }
 }
@@ -67,6 +67,45 @@ export async function POST(req) {
     return new Response(JSON.stringify({ message: "Success" }), { status: 200 });
   } catch (error) {
     console.error("Error saving user data:", error);
+    return new Response(JSON.stringify({ error: "Internal Server Error" }), { status: 500 });
+  }
+}
+
+export async function DELETE(req) {
+  try {
+    const user = await currentUser();
+    if (!user) {
+      return new Response(JSON.stringify({ error: "Unauthorized" }), { status: 401 });
+    }
+
+    const { projectId } = await req.json();
+    if (!projectId) {
+      return new Response(JSON.stringify({ error: "Project ID is required" }), { status: 400 });
+    }
+
+    await connectToDatabase();
+    const { id } = user;
+
+    const userTemplate = await UserTemplate.findOne({ userId: id });
+
+    if (!userTemplate) {
+      return new Response(JSON.stringify({ error: "User data not found" }), { status: 404 });
+    }
+
+    const projectIndex = userTemplate.websiteData.findIndex(
+      (project) => project._id.toString() === projectId
+    );
+
+    if (projectIndex === -1) {
+      return new Response(JSON.stringify({ error: "Project not found" }), { status: 404 });
+    }
+
+    userTemplate.websiteData.splice(projectIndex, 1);
+    await userTemplate.save();
+
+    return new Response(JSON.stringify({ message: "Project deleted successfully" }), { status: 200 });
+  } catch (error) {
+    console.error("Error deleting project:", error);
     return new Response(JSON.stringify({ error: "Internal Server Error" }), { status: 500 });
   }
 }

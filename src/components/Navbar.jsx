@@ -48,8 +48,6 @@ export default function Navbar() {
     }
   };
 
-  console.log(user);
-
   useEffect(() => {
     if (sidebarOpen) {
       document.addEventListener("mousedown", handleClickOutside);

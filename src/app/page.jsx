@@ -4,9 +4,9 @@ import { FeaturesList } from "@/components/Jsons/FeaturesJson";
 import Image from "next/image";
 import Link from "next/link";
 
-import TemplateGroup from "../../../public/Images/Template.svg";
-import GenerateBtn from "../../../public/Images/GenerateBtn.svg";
-import FormInput from "../../../public/Images/FormInput.svg";
+import TemplateGroup from "../../public/Images/Template.svg";
+import GenerateBtn from "../../public/Images/GenerateBtn.svg";
+import FormInput from "../../public/Images/FormInput.svg";
 
 import Features from "@/components/ResponsiveContainers/Features";
 import FooterContainer from "@/components/FooterContainer";
@@ -149,7 +149,7 @@ export default function Home() {
             <div className="md:flex-row flex-col justify-between flex items-center h-full gap-[10px]">
               <WorkingContainer
                 workingTitle="Publish and Share"
-                workingDescription="Effortlessly begin hosting your website with a single click and make it accessible to the whole world."
+                workingDescription="Effortlessly copy your website link and make it accessible to the whole world."
               />
               <Image
                 className="rounded-[30px] w-full md:w-auto"

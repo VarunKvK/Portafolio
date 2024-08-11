@@ -43,6 +43,7 @@ export default function ProjectFormUpdate({ userProjectInfo }) {
   const [tempFileName, setTempFileName] = useState("");
   const [titleCharCount, setTitleCharCount] = useState(0);
   const [descCharCount, setDescCharCount] = useState(0);
+  const [projectCreated, setProjectCreated] = useState(false);
 
   const {
     register,
@@ -92,7 +93,7 @@ export default function ProjectFormUpdate({ userProjectInfo }) {
 
   function handleTitleChange(e) {
     const inputValue = e.target.value;
-    if (inputValue.length <= 15) {
+    if (inputValue.length <= 20) {
       setValue("title", inputValue);
       setTitleCharCount(inputValue.length);
     }
@@ -100,14 +101,28 @@ export default function ProjectFormUpdate({ userProjectInfo }) {
 
   function handleDescriptionChange(e) {
     const inputValue = e.target.value;
-    if (inputValue.length <= 500) {
+    if (inputValue.length <= 200) {
       setValue("description", inputValue);
       setDescCharCount(inputValue.length);
     }
   }
 
-  async function handleSaveProject(data) {
-    setSaving(true);
+  async function handleSaveProject() {
+    if (!projectCreated) {
+      toast({
+        title: (
+          <div className="flex items-center gap-1">
+            <AlertTriangle className="dark:text-[#f1f1f1] text-[#f44336]" />
+            <p className="dark:text-[#f1f1f1] text-[#f44336]">
+              Please create a project before saving
+            </p>
+          </div>
+        ),
+        variant: "destructive",
+      });
+      return;
+    }
+
     try {
       const response = await fetch("/api/projectInfo", {
         method: "POST",
@@ -121,7 +136,7 @@ export default function ProjectFormUpdate({ userProjectInfo }) {
       if (!response.ok) {
         throw new Error("Failed to save project");
       }
-
+      setSaving(true);
       toast({
         title: (
           <div className="flex items-center gap-1">
@@ -160,6 +175,7 @@ export default function ProjectFormUpdate({ userProjectInfo }) {
       },
     ]);
     resetForm();
+    setProjectCreated(true);
   }
 
   function resetForm() {
@@ -174,11 +190,50 @@ export default function ProjectFormUpdate({ userProjectInfo }) {
     setDescCharCount(0);
   }
 
-  function removeProject(index) {
-    setProjectData((prevData) => prevData.filter((_, i) => i !== index));
+  async function handleDeleteProject(index) {
+    const project = userProjectInfo[index];
+    try {
+      const response = await fetch("/api/projectInfo", {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({ title: project.name }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to delete project");
+      }
+
+      toast({
+        title: (
+          <div className="flex items-center gap-1">
+            <CheckCircle className="dark:text-[#f1f1f1] text-[#282f30]" />
+            <p className="dark:text-[#f1f1f1] text-[#282f30]">
+              Project Deleted Successfully
+            </p>
+          </div>
+        ),
+      });
+
+      setProjectData((prevData) => prevData.filter((_, i) => i !== index));
+    } catch (error) {
+      toast({
+        title: (
+          <div className="flex items-center gap-1">
+            <AlertTriangle className="dark:text-[#f1f1f1] text-[#f44336]" />
+            <p className="dark:text-[#f1f1f1] text-[#f44336]">
+              Error Deleting Project: {error.message}
+            </p>
+          </div>
+        ),
+        variant: "destructive",
+      });
+    }
   }
 
-  // const isProjectLimitReached = projectData.length >= 4;
+  const projectLength = userProjectInfo.length >= 4;
 
   return (
     <div className="bg-[#f7f7f7] border border-white/50 dark:bg-[#15191a] dark:border-[#282F30]/40 p-8 rounded-[2rem] mt-8 flex flex-col gap-6">
@@ -249,24 +304,19 @@ export default function ProjectFormUpdate({ userProjectInfo }) {
         <div className="flex flex-col gap-1">
           <Button
             onClick={handleSubmit(createProjectData)}
-            className="bg-[#F1C40F] rounded-lg px-14"
-            // className={`bg-[#F1C40F] rounded-lg px-14 ${
-            //   isProjectLimitReached ? "opacity-50 cursor-not-allowed" : ""
-            // }`}
-            // disabled={isProjectLimitReached}
+            className={`rounded-lg px-14 ${
+              projectLength ? "bg-gray-400 cursor-not-allowed" : "bg-[#F1C40F]"
+            }`}
+            disabled={projectLength}
           >
-            <span className="">Create</span>
+            <span>Create</span>
           </Button>
         </div>
         <div className="flex flex-col gap-1">
           <Button
             onClick={handleSaveProject}
             className="bg-[#F1C40F] rounded-lg px-14"
-
-            // className={`bg-[#F1C40F] rounded-lg px-14 ${
-            // isProjectLimitReached ? "opacity-50 cursor-not-allowed" : ""
-            // }`}
-            // disabled={!isProjectLimitReached}
+            disabled={!projectCreated}
           >
             {saving ? (
               <span className="">Saving...</span>
@@ -281,7 +331,7 @@ export default function ProjectFormUpdate({ userProjectInfo }) {
           Projects you created
         </h2>
         <div className="flex items-center gap-2">
-          {userProjectInfo.map((values) => (
+          {userProjectInfo.map((values,index) => (
             <div key={values.name} className="relative">
               <ToolTip
                 className="relative w-[20%] h-[20%]"
@@ -289,6 +339,12 @@ export default function ProjectFormUpdate({ userProjectInfo }) {
                 projectDescription={values.description}
                 projectUrl={values.url}
               >
+                <Button
+                  onClick={() => handleDeleteProject(index)}
+                  className="absolute right-2 top-2 bg-[#121515] dark:bg-[#f1f1f1] p-2 rounded-md"
+                >
+                  <Trash className="dark:text-[#394041] text-[#f1f1f1]" />
+                </Button>
                 <Image
                   className="rounded-md w-full h-full"
                   src={values.project_image_url}
@@ -303,7 +359,7 @@ export default function ProjectFormUpdate({ userProjectInfo }) {
         <ProjectsContainer
           projectData={projectData}
           error={error}
-          removeProject={removeProject}
+          removeProject={handleDeleteProject}
         />
       </div>
     </div>
