@@ -6,6 +6,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
 import { CSPostHogProvider } from "./provider";
+import { Analytics } from "@vercel/analytics/react"
 
 const lato = Lato({
   subsets: ["latin", "latin-ext"],
@@ -35,6 +36,7 @@ export default function RootLayout({ children }) {
             >
               <Navbar />
               {children}
+              <Analytics />
             </ThemeProvider>
             <Toaster />
           </body>
