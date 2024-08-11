@@ -107,7 +107,7 @@ const PreviewPage = () => {
               href={"/create"}
               className="flex justify-center bg-[#282F30] dark:bg-[#f1f1f1] px-4 py-2 text-sm rounded-[15px] text-[#f1f1f1] dark:text-[#282F30] font-bold transition duration-300 md:hover:shadow-[0_0_20px_5px_currentColor]"
             >
-              Let's get it done
+              Let&apos;s get it done
             </Link>
           ) : (
             <Button

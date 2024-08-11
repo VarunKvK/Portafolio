@@ -18,7 +18,7 @@ import { useToast } from "../ui/use-toast";
 import { Separator } from "../ui/separator";
 import Link from "next/link";
 
-const SkillProfile = ({ userSkills,id }) => {
+const SkillProfile = ({ userSkills, id }) => {
   const { toast } = useToast();
   const [skills, setSkills] = useState(userSkills);
   const [saving, setSaving] = useState(false);
@@ -111,7 +111,7 @@ const SkillProfile = ({ userSkills,id }) => {
             <Button variant="outline" className="flex items-center gap-1">
               <Pencil className="w-4" />
               <span className="md:block hidden">
-              Edit Skills
+                Edit Skills
               </span>
             </Button>
           </DialogTrigger>
@@ -119,7 +119,7 @@ const SkillProfile = ({ userSkills,id }) => {
             <DialogHeader>
               <DialogTitle>Edit your skills</DialogTitle>
               <DialogDescription>
-                Make changes to your skills here. Click save when you're done.
+                Make changes to your skills here. Click save when you&apos;re done.
               </DialogDescription>
             </DialogHeader>
             <div className="px-[24px] py-[24px] border border-[#282F30] dark:bg-[#121515] dark:border-[#282F30] rounded-lg">
@@ -140,15 +140,15 @@ const SkillProfile = ({ userSkills,id }) => {
               ))}
             </div>
             <div className="flex items-center justify-between">
-            <Button onClick={handleSaveSkills} type="button" disabled={saving} className="bg-[#F1C40F]">
-              Save changes
-            </Button>
-            <Link href={`/create/${id}`} className="border rounded-md py-2 px-4 border-[#F1C40F] text-[#F1C40F]">Add Skills</Link>
+              <Button onClick={handleSaveSkills} type="button" disabled={saving} className="bg-[#F1C40F]">
+                Save changes
+              </Button>
+              <Link href={`/create/${id}`} className="border rounded-md py-2 px-4 border-[#F1C40F] text-[#F1C40F]">Add Skills</Link>
             </div>
           </DialogContent>
         </Dialog>
       </div>
-      <Separator variant="outline"/>
+      <Separator variant="outline" />
       <div className="pt-6 flex flex-wrap items-center gap-2">
         {skills.map((skill) => (
           <BadgeContainer key={skill.skill}>
