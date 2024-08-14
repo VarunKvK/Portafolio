@@ -223,13 +223,21 @@ export default function Navbar() {
             </Link>
           </li>
           <li className="px-4 py-2">
-            <Link
-              className="font-semibold text-[16px] text-[#f1f1f1] dark:text-[#282F30]"
-              href="/create"
-              onClick={toggleSidebar}
-            >
-              Create
-            </Link>
+            {!user.portfolioInfo ? (
+              <Link
+                className="font-semibold text-[16px] text-[#f1f1f1] dark:text-[#282F30]"
+                href="/create"
+              >
+                Create
+              </Link>
+            ) : (
+              <Link
+                className="font-semibold text-[16px] text-[#f1f1f1] dark:text-[#282F30]"
+                href={`/create/${user._id}`}
+              >
+                Modify
+              </Link>
+            )}
           </li>
           <li className="px-4 py-2">
             <Link

@@ -44,12 +44,9 @@ const socialMediaIcons = {
 
 // Zod schema for validation
 const schema = z.object({
-  username: z.string().min(1, "Username should be a one character").optional(),
+  username: z.string().min(1, "Username should be at least one character").optional(),
   websiteName: z.string().optional(),
-  profession: z
-    .string()
-    .min(1, "Profession should be a one character")
-    .optional(),
+  profession: z.string().min(1, "Profession should be at least one character").optional(),
   bio: z.string().optional(),
 });
 
@@ -62,15 +59,15 @@ const UserProfile = ({ userData }) => {
   } = useForm({
     resolver: zodResolver(schema),
     defaultValues: {
-      username: userData.portfolioInfo.bio.username,
-      websiteName: userData.portfolioInfo.bio.websiteName,
-      profession: userData.portfolioInfo.bio.profession,
-      bio: userData.portfolioInfo.bio.bio,
+      username: userData?.portfolioInfo?.bio?.username || "",
+      websiteName: userData?.portfolioInfo?.bio?.websiteName || "",
+      profession: userData?.portfolioInfo?.bio?.profession || "",
+      bio: userData?.portfolioInfo?.bio?.bio || "",
     },
   });
 
   const getInitials = (firstName, lastName) => {
-    return `${firstName.charAt(0)}${lastName.charAt(0)}`;
+    return `${firstName?.charAt(0) || ""}${lastName?.charAt(0) || ""}`;
   };
 
   const onSubmit = async (data) => {
@@ -115,10 +112,10 @@ const UserProfile = ({ userData }) => {
           </Avatar>
           <div className="flex flex-col gap-1">
             <h4 className="text-lg font-semibold leading-none">
-              {userData.portfolioInfo.bio.username}
+              {userData?.portfolioInfo?.bio?.username || userData.firstName}
             </h4>
             <p className="text-sm text-muted-foreground">
-              {userData.portfolioInfo.bio.profession}
+              {userData?.portfolioInfo?.bio?.profession || "Your Profession"}
             </p>
           </div>
         </div>
@@ -141,7 +138,7 @@ const UserProfile = ({ userData }) => {
                 onSubmit={handleSubmit(onSubmit)}
                 className="grid gap-4 py-10"
               >
-                {/* Rest of the form content */}
+                {/* Form content goes here */}
               </form>
             </SheetContent>
           </Sheet>
@@ -149,28 +146,34 @@ const UserProfile = ({ userData }) => {
       </div>
       <Separator className="my-4" />
       <div className="">
-        <p className="text-sm md:text-md md:w-[50%] dark:text-[#f1f1f1]/50 text-[#282F30] ">
-          {userData.portfolioInfo.bio.bio}
+        <p className="text-sm md:text-md md:w-[50%] dark:text-[#f1f1f1]/50 text-[#282F30]">
+          {userData?.portfolioInfo?.bio?.bio || "Add a short bio about yourself."}
         </p>
       </div>
       <Separator className="my-4" />
       <div className="flex flex-wrap h-auto items-center space-x-2 border rounded-lg p-4">
-        {userData.portfolioInfo.socials.map((link) => {
-          const icon = socialMediaIcons[link.social_name];
-          return (
-            <Link
-              href={link.url}
-              key={link.social_name}
-              className="flex items-center gap-1"
-            >
-              {icon && (
-                <FontAwesomeIcon className="text-[1.3rem]" icon={icon} />
-              )}
-              <p className="hidden md:block">{link.social_name}</p>
-              <Separator orientation="vertical" />
-            </Link>
-          );
-        })}
+        {userData?.portfolioInfo?.socials?.length > 0 ? (
+          userData.portfolioInfo.socials.map((link) => {
+            const icon = socialMediaIcons[link.social_name];
+            return (
+              <Link
+                href={link.url}
+                key={link.social_name}
+                className="flex items-center gap-1"
+              >
+                {icon && (
+                  <FontAwesomeIcon className="text-[1.3rem]" icon={icon} />
+                )}
+                <p className="hidden md:block">{link.social_name}</p>
+                <Separator orientation="vertical" />
+              </Link>
+            );
+          })
+        ) : (
+          <p className="text-muted-foreground">
+            No social media links added yet.
+          </p>
+        )}
       </div>
     </div>
   );

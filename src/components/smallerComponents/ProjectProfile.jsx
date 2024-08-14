@@ -30,12 +30,6 @@ const ProjectProfile = ({ userProjects, id }) => {
   const [projectData, setProjectData] = useState(userProjects);
   const [error, setError] = useState();
 
-  // useEffect(() => {
-  //   if (projectData.length < 4) {
-  //     router.push("/create");
-  //   }
-  // }, [projectData, router]);
-
   async function handleDeleteProject(index) {
     const project = projectData[index];
     try {
@@ -117,30 +111,36 @@ const ProjectProfile = ({ userProjects, id }) => {
                     </Link>
                   </div>
                   <div className="dark:bg-[#121515] bg-[#f0f0f0] w-full rounded-lg grid grid-cols-2 items-end gap-4 overflow-y-auto max-w-6xl">
-                    {projectData.map((values, index) => (
-                      <div key={values.name} className="relative">
-                        <Button
-                          onClick={() => handleDeleteProject(index)}
-                          className="absolute right-2 top-2 bg-[#121515] dark:bg-[#f1f1f1] p-2 rounded-md"
-                        >
-                          <Trash className="dark:text-[#394041] text-[#f1f1f1]" />
-                        </Button>
-                        <ToolTip
-                          className="relative w-[20%] h-[20%]"
-                          projectTitle={values.name}
-                          projectDescription={values.description}
-                          projectUrl={values.url}
-                        >
-                          <Image
-                            className="rounded-md w-full h-full"
-                            src={values.project_image_url}
-                            alt={values.name}
-                            width={200}
-                            height={200}
-                          />
-                        </ToolTip>
-                      </div>
-                    ))}
+                    {projectData.length > 0 ? (
+                      projectData.map((values, index) => (
+                        <div key={values.name} className="relative">
+                          <Button
+                            onClick={() => handleDeleteProject(index)}
+                            className="absolute right-2 top-2 bg-[#121515] dark:bg-[#f1f1f1] p-2 rounded-md"
+                          >
+                            <Trash className="dark:text-[#394041] text-[#f1f1f1]" />
+                          </Button>
+                          <ToolTip
+                            className="relative w-[20%] h-[20%]"
+                            projectTitle={values.name}
+                            projectDescription={values.description}
+                            projectUrl={values.url}
+                          >
+                            <Image
+                              className="rounded-md w-full h-full"
+                              src={values.project_image_url}
+                              alt={values.name}
+                              width={200}
+                              height={200}
+                            />
+                          </ToolTip>
+                        </div>
+                      ))
+                    ) : (
+                      <p className="col-span-2 text-center py-4">
+                        No projects added yet.
+                      </p>
+                    )}
                   </div>
                 </div>
               </div>
@@ -150,24 +150,30 @@ const ProjectProfile = ({ userProjects, id }) => {
       </div>
       <Separator variant="outline" />
       <div className="w-full rounded-lg grid grid-cols-2 md:grid-cols-4 items-end gap-4 overflow-y-auto max-w-6xl pt-6">
-        {projectData.map((values, index) => (
-          <div key={values.name} className="relative">
-            <ToolTip
-              className="relative"
-              projectTitle={values.name}
-              projectDescription={values.description}
-              projectUrl={values.url}
-            >
-              <Image
-                className="rounded-md w-full h-full"
-                src={values.project_image_url}
-                alt={values.name}
-                width={200}
-                height={200}
-              />
-            </ToolTip>
-          </div>
-        ))}
+        {projectData.length > 0 ? (
+          projectData.map((values, index) => (
+            <div key={values.name} className="relative">
+              <ToolTip
+                className="relative"
+                projectTitle={values.name}
+                projectDescription={values.description}
+                projectUrl={values.url}
+              >
+                <Image
+                  className="rounded-md w-full h-full"
+                  src={values.project_image_url}
+                  alt={values.name}
+                  width={200}
+                  height={200}
+                />
+              </ToolTip>
+            </div>
+          ))
+        ) : (
+          <p className="col-span-2 text-center py-4 text-[#282F30]/70 dark:text-[#f1f1f1]/70">
+            No projects added yet.
+          </p>
+        )}
       </div>
     </div>
   );

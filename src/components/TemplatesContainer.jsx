@@ -71,7 +71,7 @@ const TemplatesContainer = ({ template_data }) => {
                   className="rounded-[2rem]"
                   onClick={() => storingTemplateId(template_data._id)}
                 >
-                  Fill the details
+                  Create
                 </Button>
               ) : (
                 <Button className="rounded-[2rem]" onClick={()=>router.push(`/processing/${template_data._id}`)}>Create</Button>
