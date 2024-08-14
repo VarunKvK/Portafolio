@@ -96,7 +96,7 @@ export default function Home() {
             <h2 className="text-[#282F30] dark:text-[#f1f1f1] font-bold text-[40px] w-[60%] md:text-[50px]">
               Why Choose Portafolio?
             </h2>
-            <div className="md:hidden flex justify-center w-full items-center">
+            <div className=" md:hidden flex items-center ">
               <Features features={FeaturesList} />
             </div>
             <div className="hidden md:grid grid-cols-3 gap-10">

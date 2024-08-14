@@ -8,33 +8,36 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Autoplay from "embla-carousel-autoplay"
+import Autoplay from "embla-carousel-autoplay";
 import { v4 as uuidv4 } from 'uuid';
-
 
 export default function CarouselDemo({ features }) {
   return (
-    <div className="w-full sm:max-w-2xl max-w-md">
-      <Carousel plugins={[
-        Autoplay({
-          delay: 5000,
-        }),
-      ]} className="w-[73%]" key={uuidv4()}>
+    <div className="overflow-hidden">
+      <Carousel
+        plugins={[
+          Autoplay({
+            delay: 5000,
+          }),
+        ]}
+        className="w-full"
+        key={uuidv4()}
+      >
         <CarouselContent>
           {features.map((f, index) => (
-            <CarouselItem  key={index}>
-              <Card>
-                <CardContent className="bg-[#F1F1F1] dark:bg-[#15191a] border border-white/70 dark:border-[#282F30]/40 px-[40px] py-[50px] flex flex-col justify-between gap-[80px] rounded-[30px]">
-                  <div className="flex items-center gap-1">
-                    <h1 className="text-[25px] font-bold text-[#282F30] dark:text-[#f1f1f1]">
+            <CarouselItem key={index} className="w-full">
+              <Card className="w-full">
+                <CardContent className="w-full md:w-full bg-[#F1F1F1] dark:bg-[#15191a] border border-white/70 dark:border-[#282F30]/40 p-6 sm:p-8 flex flex-col justify-between gap-[90px] rounded-[30px]">
+                  <div className="flex items-center gap-2">
+                    <h1 className="text-lg sm:text-xl font-bold text-[#282F30] dark:text-[#f1f1f1]">
                       {f.featureTitle}
                     </h1>
                     <FontAwesomeIcon
                       icon={f.featureIcon}
-                      className="text-[24px]"
+                      className="text-lg sm:text-xl"
                     />
                   </div>
-                  <p className="text-[#4D5657] dark:text-[#8c999b] w-[80%] text-[15px]">
+                  <p className="text-sm sm:text-base text-[#4D5657] dark:text-[#8c999b]">
                     {f.featureDescription}
                   </p>
                 </CardContent>
