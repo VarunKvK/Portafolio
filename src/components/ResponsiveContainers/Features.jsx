@@ -19,7 +19,7 @@ export default function CarouselDemo({ features }) {
         Autoplay({
           delay: 5000,
         }),
-      ]} className="" key={uuidv4()}>
+      ]} className="w-[73%]" key={uuidv4()}>
         <CarouselContent>
           {features.map((f, index) => (
             <CarouselItem  key={index}>
@@ -34,7 +34,7 @@ export default function CarouselDemo({ features }) {
                       className="text-[24px]"
                     />
                   </div>
-                  <p className="text-[#4D5657] dark:text-[#8c999b] w-[70%] text-[15px]">
+                  <p className="text-[#4D5657] dark:text-[#8c999b] w-[80%] text-[15px]">
                     {f.featureDescription}
                   </p>
                 </CardContent>

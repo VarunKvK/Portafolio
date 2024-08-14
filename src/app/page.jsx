@@ -93,7 +93,7 @@ export default function Home() {
         {/* Features */}
         <section className="flex items-center h-[88vh]">
           <div className="flex flex-col gap-12">
-            <h2 className="text-[#282F30] dark:text-[#f1f1f1] font-bold text-[40px] md:text-[50px]">
+            <h2 className="text-[#282F30] dark:text-[#f1f1f1] font-bold text-[27px] md:text-[50px]">
               Why Choose Portafolio?
             </h2>
             <div className="md:hidden flex justify-center w-full items-center">
