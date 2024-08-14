@@ -123,7 +123,7 @@ const SkillProfile = ({ userSkills, id }) => {
                 <DialogHeader>
                   <DialogTitle>Edit Your Skills</DialogTitle>
                   <DialogDescription>
-                    Make changes to your skills here. Click save when you're done.
+                    Make changes to your skills here. Click save when you&apos;re done.
                   </DialogDescription>
                 </DialogHeader>
                 {skills.length > 0 ? (
@@ -180,7 +180,7 @@ const SkillProfile = ({ userSkills, id }) => {
           ))
         ) : (
           <p className="col-span-2 text-center py-4 text-[#282F30]/70 dark:text-[#f1f1f1]/70">
-            No skills added yet. Click the "Add Skills" button to get started.
+            No skills added yet. Click the &quot;Add Skills&quot; button to get started.
           </p>
         )}
       </div>
