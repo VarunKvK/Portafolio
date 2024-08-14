@@ -93,7 +93,7 @@ export default function Home() {
         {/* Features */}
         <section className="flex items-center h-[88vh]">
           <div className="flex flex-col gap-12">
-            <h2 className="text-[#282F30] dark:text-[#f1f1f1] font-bold text-[27px] md:text-[50px]">
+            <h2 className="text-[#282F30] dark:text-[#f1f1f1] font-bold text-[40px] w-[60%] md:text-[50px]">
               Why Choose Portafolio?
             </h2>
             <div className="md:hidden flex justify-center w-full items-center">
@@ -168,7 +168,7 @@ export default function Home() {
           <h2 className="text-[#282F30] dark:text-[#f1f1f1] font-bold md:text-[58px] text-[40px]">
             Template Collections
           </h2>
-          <div className="flex flex-col md:grid md:grid-cols-2 gap-10 max-w-6xl mx-auto w-full h-full mt-8 px-4">
+          <div className="flex flex-col md:grid md:grid-cols-2 gap-10 w-full h-full mt-8">
             {template.map((data, index) => (
               <TemplatesContainer template_data={data} key={index} />
             ))}
