@@ -90,9 +90,9 @@ const PreviewPage = () => {
   }
 
   return (
-    <div className="max-w-8xl mx-auto w-full p-4 md:p-8">
-      <div className="bg-[#f7f7f7] border border-white/50 dark:bg-[#15191a] dark:border-[#282F30]/40 p-8 rounded-[2rem]">
-        <div className="md:flex justify-between items-center mb-10">
+    <div className="max-w-8xl mx-auto w-full h-full p-2 md:p-8">
+      <div className="bg-[#f7f7f7] border border-white/50 dark:bg-[#15191a] dark:border-[#282F30]/40 px-2 py-8 rounded-[2rem]">
+        <div className="md:flex justify-between items-center mb-10 px-2">
           <div className="flex items-start gap-2">
             <h1 className="mb-4 md:text-left text-center text-[32px] font-bold text-[#282f30] dark:text-[#f1f1f1]">
               Preview Template
@@ -119,9 +119,7 @@ const PreviewPage = () => {
           )}
         </div>
         {!templateHTML && <Loader progress={progress} />}
-        <div className="rounded-[30px] h-[100vh] overflow-y-auto overflow-x-hidden">
           <div dangerouslySetInnerHTML={{ __html: templateHTML }} />
-        </div>
       </div>
       <div className="mt-10">
         <h1 className="mb-4 text-center text-[32px] font-bold text-[#282f30] dark:text-[#f1f1f1]">
