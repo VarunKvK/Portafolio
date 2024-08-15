@@ -103,7 +103,7 @@ const SkillProfile = ({ userSkills, id }) => {
         </h1>
         <div className="flex items-center gap-2">
           <Link href={`/create/${id}`} passHref>
-            <Button variant="outline" className="flex items-center gap-1">
+            <Button variant="outline" className="flex items-center gap-1 border-white/50 dark:bg-[#15191a] dark:border-[#282F30]/40 dark:text-white">
               <Plus className="w-4" />
               <span className="md:block hidden">Add Skills</span>
             </Button>
