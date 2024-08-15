@@ -15,7 +15,7 @@ const ProjectDetailsForms = async ({ id }) => {
   const rank = `${id}/${totalForms}`;
 
   return (
-    <div className="bg-[#f7f7f7] border border-white/80 dark:bg-[#15191a] dark:border-[#282F30]/40 rounded-[30px] px-10 py-10">
+    <div className="bg-[#f7f7f7] border border-white/80 dark:bg-[#15191a] dark:border-[#282F30]/40 rounded-[30px] px-6 py-10">
       <div className="flex flex-col gap-1">
         <div className="w-full flex justify-between">
           <div className="flex items-center gap-2">

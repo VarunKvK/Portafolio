@@ -29,7 +29,7 @@ const CreatePortfolio = async () => {
           </div>
         </div>
       </aside>
-      <div className="grow w-full lg:w-[75%] flex flex-col gap-10 px-6 mb-14">
+      <div className="grow w-full lg:w-[75%] flex flex-col gap-2 md:gap-10 px-2 mb-14">
         <BioDetailsForms id={1} />
         <SocialMediaDetailsForms id={2} />
         <SkillsDetailsForms id={3} />

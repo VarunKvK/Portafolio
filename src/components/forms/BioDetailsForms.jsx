@@ -16,7 +16,7 @@ const BioDetailsForms = async ({ id }) => {
   const rank = `${id}/${totalForms}`;
 
   return (
-    <div className="w-full bg-[#f7f7f7] border border-white/80 dark:bg-[#15191a] dark:border-[#282F30]/40 rounded-[30px] px-10 py-10">
+    <div className="w-full bg-[#f7f7f7] border border-white/80 dark:bg-[#15191a] dark:border-[#282F30]/40 rounded-[30px] px-6 py-6">
       <div className="flex flex-col gap-1">
         <div className="w-full flex justify-between">
           <h1 className="text-[32px] font-bold text-[#282f30] dark:text-[#f1f1f1]">

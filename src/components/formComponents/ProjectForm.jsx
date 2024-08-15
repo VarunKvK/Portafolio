@@ -298,7 +298,7 @@ export default function ProjectForm() {
         <div className="flex flex-col gap-1">
           <Button
             onClick={handleSubmit(createProjectData)}
-            className="bg-[#F1C40F] rounded-lg px-14"
+            className="bg-[#F1C40F] rounded-lg md:px-14 px-10"
             // className={`bg-[#F1C40F] rounded-lg px-14 ${
             //   isProjectLimitReached ? "opacity-50 cursor-not-allowed" : ""
             // }`}
@@ -312,7 +312,7 @@ export default function ProjectForm() {
             onClick={handleSaveProject}
             // className="bg-[#F1C40F] rounded-lg px-14"
 
-            className={`bg-[#F1C40F] rounded-lg px-14 ${
+            className={`bg-[#F1C40F] rounded-lg md:px-14 px-10 ${
             isProjectLimitReached ? "opacity-50 cursor-not-allowed" : ""
             }`}
             disabled={!isProjectLimitReached}
@@ -325,10 +325,10 @@ export default function ProjectForm() {
           </Button>
         </div>
       </div>
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col itmes-end justify-between gap-4">
         <h2 className="text-lg font-bold dark:text-[#f1f1f1] text-[#282F30]">
           Projects you created{" "}
-          <span className="text-md font-medium text-[#3e3f3f]">
+          <span className="md:text-md text-sm font-medium text-[#3e3f3f]">
             (give your best 4)
           </span>
         </h2>

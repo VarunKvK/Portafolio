@@ -165,7 +165,7 @@ export default function SocialForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="">
-      <div className="flex-wrap gap-6 md:gap-2 md:flex-nowrap flex items-center justify-evenly py-[18px] border border-[#282F30] dark:bg-[#121515] dark:border-[#282F30] rounded-lg">
+      <div className="p-4 flex-wrap gap-2 md:gap-2 md:flex-nowrap flex items-center justify-evenly py-[18px] border border-[#282F30] dark:bg-[#121515] dark:border-[#282F30] rounded-lg">
         {socialMediaPlatforms.map((platform) => (
           <Button
             className="flex items-center gap-1"
