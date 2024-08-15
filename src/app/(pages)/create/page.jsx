@@ -5,14 +5,10 @@ import SkillsDetailsForms from "@/components/forms/SkillsDetailsForms";
 import SocialMediaDetailsForms from "@/components/forms/SocialMediaDetailsForms";
 import GuideStyling from "@/components/smallerComponents/GuideStyling";
 import { useAuth } from "@clerk/nextjs";
-import { promises as fs } from "fs";
+
+import {GuidesData} from "@/components/Jsons/GuideJson"
 
 const CreatePortfolio = async () => {
-  const file = await fs.readFile(
-    process.cwd() + "/src/components/Jsons/GuideJson.json",
-    "utf8"
-  );
-  const data = JSON.parse(file);
 
   return (
     <div className="flex">
@@ -27,7 +23,7 @@ const CreatePortfolio = async () => {
             </p>
           </div>
           <div className="flex flex-col gap-10 py-10">
-            {data.map((d, index) => (
+            {GuidesData.map((d, index) => (
               <GuideStyling key={index} id={d.id} guide={d.title} />
             ))}
           </div>

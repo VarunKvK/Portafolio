@@ -1,4 +1,4 @@
-[
+export const GuidesData=[
     {
         "id": 1,
         "title": "Give out you bio details"

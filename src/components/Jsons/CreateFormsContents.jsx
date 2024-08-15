@@ -1,4 +1,4 @@
-[
+export const FormText=[
     {
         "id":1,
         "title":"First step toward portfolio!",

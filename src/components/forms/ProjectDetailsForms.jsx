@@ -1,16 +1,11 @@
-import { promises as fs } from "fs";
 import ProjectForm from "../formComponents/ProjectForm";
 import InfoTooltip from "../smallerComponents/InfoTooltip";
+import {FormText} from "@/components/Jsons/CreateFormsContents"
 
 const ProjectDetailsForms = async ({ id }) => {
-  const file = await fs.readFile(
-    process.cwd() + "/src/components/Jsons/CreateFormsContents.json",
-    "utf8"
-  );
-  const formDetails = JSON.parse(file);
 
-  const totalForms = formDetails.length;
-  const formDetail = formDetails.find((form) => form.id === id);
+  const totalForms = FormText.length;
+  const formDetail = FormText.find((form) => form.id === id);
 
   if (!formDetail) {
     throw new Error(`Form detail with ID ${id} not found`);
