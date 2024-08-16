@@ -92,7 +92,7 @@ export default function Home() {
 
         {/* Features */}
         <section className="flex items-center">
-          <div className="grid grid-rows-2 gap-12">
+          <div className="flex flex-col gap-12">
             <h2 className="text-[#282F30] dark:text-[#f1f1f1] font-bold text-[40px] w-[60%] md:text-[50px]">
               Why Choose Portafolio?
             </h2>
