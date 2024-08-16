@@ -134,12 +134,55 @@ const UserProfile = ({ userData }) => {
                   Make changes to your profile here. Click save when you&apos;re done.
                 </SheetDescription>
               </SheetHeader>
-              <form
-                onSubmit={handleSubmit(onSubmit)}
-                className="grid gap-4 py-10"
-              >
-                {/* Form content goes here */}
-              </form>
+              <form onSubmit={handleSubmit(onSubmit)} className="grid gap-4 py-10">
+              <div className="flex flex-col items-start gap-4">
+                <Label htmlFor="username" className="text-right">
+                  Username
+                </Label>
+                <Input
+                  id="username"
+                  {...register("username")}
+                  className="col-span-3"
+                />
+                {errors.username && <p>{errors.username.message}</p>}
+              </div>
+              <div className="flex flex-col items-start gap-4">
+                <Label htmlFor="website" className="text-right">
+                  Website
+                </Label>
+                <Input
+                  id="website"
+                  {...register("websiteName")}
+                  className="col-span-3"
+                />
+              </div>
+              <div className="flex flex-col items-start gap-4">
+                <Label htmlFor="profession" className="text-right">
+                  Profession
+                </Label>
+                <Input
+                  id="profession"
+                  {...register("profession")}
+                  className="col-span-3"
+                />
+                {errors.profession && <p>{errors.profession.message}</p>}
+              </div>
+              <div className="flex flex-col items-start gap-4">
+                <Label htmlFor="bio" className="text-right">
+                  Bio
+                </Label>
+                <Textarea
+                  id="bio"
+                  {...register("bio")}
+                  className="col-span-3"
+                />
+              </div>
+              <SheetFooter>
+                <SheetClose asChild>
+                  <Button type="submit" className="bg-[#F1C40F]">Save changes</Button>
+                </SheetClose>
+              </SheetFooter>
+            </form>
             </SheetContent>
           </Sheet>
         </div>
