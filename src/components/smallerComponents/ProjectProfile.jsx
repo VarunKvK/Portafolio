@@ -81,7 +81,7 @@ const ProjectProfile = ({ userProjects, id }) => {
         </h1>
         <Dialog>
           <DialogTrigger
-            className="bg-[#f7f7f7] border border-white/50 dark:bg-[#15191a] dark:border-[#282F30]/40 dark:text-white text-[#1c2021]"
+            className="flex items-center gap-1 border-white/50 dark:bg-[#15191a] dark:border-[#282F30]/40 dark:text-white"
             asChild
           >
             <Button variant="outline" className="flex items-center gap-1">
@@ -170,8 +170,10 @@ const ProjectProfile = ({ userProjects, id }) => {
             </div>
           ))
         ) : (
-          <p className="col-span-2 text-center py-4 text-[#282F30]/70 dark:text-[#f1f1f1]/70">
-            No projects added yet.
+          <p className="col-span-2 text-center md:text-left py-4 text-[#282F30]/70 dark:text-[#f1f1f1]/70">
+            No projects added yet. Click the &quot;<Link href={`/create/${id}`} className="text-[#1e1e1e] underline">
+              Add Projects
+            </Link>&quot; to get started.
           </p>
         )}
       </div>

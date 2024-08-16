@@ -44,13 +44,19 @@ const socialMediaIcons = {
 
 // Zod schema for validation
 const schema = z.object({
-  username: z.string().min(1, "Username should be at least one character").optional(),
+  username: z
+    .string()
+    .min(1, "Username should be at least one character")
+    .optional(),
   websiteName: z.string().optional(),
-  profession: z.string().min(1, "Profession should be at least one character").optional(),
+  profession: z
+    .string()
+    .min(1, "Profession should be at least one character")
+    .optional(),
   bio: z.string().optional(),
 });
 
-const UserProfile = ({ userData }) => {
+const UserProfile = ({ userData, id }) => {
   const {
     register,
     handleSubmit,
@@ -122,7 +128,7 @@ const UserProfile = ({ userData }) => {
         <div className="flex justify-between items-center">
           <Sheet>
             <SheetTrigger asChild>
-              <Button className="flex items-center gap-1 bg-[#f7f7f7] border border-white/50 dark:bg-[#15191a] dark:border-[#282F30]/40 dark:text-[#f1f1f1] text-[#1c2021] hover:text-[#f1f1f1]">
+              <Button variant="outline" className="flex items-center gap-1 border-white/50 dark:bg-[#15191a] dark:border-[#282F30]/40 dark:text-white">
                 <Pencil className="w-4" />
                 <span className="md:block hidden">Edit Profile</span>
               </Button>
@@ -131,58 +137,64 @@ const UserProfile = ({ userData }) => {
               <SheetHeader>
                 <SheetTitle>Edit profile</SheetTitle>
                 <SheetDescription>
-                  Make changes to your profile here. Click save when you&apos;re done.
+                  Make changes to your profile here. Click save when you&apos;re
+                  done.
                 </SheetDescription>
               </SheetHeader>
-              <form onSubmit={handleSubmit(onSubmit)} className="grid gap-4 py-10">
-              <div className="flex flex-col items-start gap-4">
-                <Label htmlFor="username" className="text-right">
-                  Username
-                </Label>
-                <Input
-                  id="username"
-                  {...register("username")}
-                  className="col-span-3"
-                />
-                {errors.username && <p>{errors.username.message}</p>}
-              </div>
-              <div className="flex flex-col items-start gap-4">
-                <Label htmlFor="website" className="text-right">
-                  Website
-                </Label>
-                <Input
-                  id="website"
-                  {...register("websiteName")}
-                  className="col-span-3"
-                />
-              </div>
-              <div className="flex flex-col items-start gap-4">
-                <Label htmlFor="profession" className="text-right">
-                  Profession
-                </Label>
-                <Input
-                  id="profession"
-                  {...register("profession")}
-                  className="col-span-3"
-                />
-                {errors.profession && <p>{errors.profession.message}</p>}
-              </div>
-              <div className="flex flex-col items-start gap-4">
-                <Label htmlFor="bio" className="text-right">
-                  Bio
-                </Label>
-                <Textarea
-                  id="bio"
-                  {...register("bio")}
-                  className="col-span-3"
-                />
-              </div>
-              <SheetFooter>
-                <SheetClose asChild>
-                  <Button type="submit" className="bg-[#F1C40F]">Save changes</Button>
-                </SheetClose>
-              </SheetFooter>
-            </form>
+              <form
+                onSubmit={handleSubmit(onSubmit)}
+                className="grid gap-4 py-10"
+              >
+                <div className="flex flex-col items-start gap-4">
+                  <Label htmlFor="username" className="text-right">
+                    Username
+                  </Label>
+                  <Input
+                    id="username"
+                    {...register("username")}
+                    className="col-span-3"
+                  />
+                  {errors.username && <p>{errors.username.message}</p>}
+                </div>
+                <div className="flex flex-col items-start gap-4">
+                  <Label htmlFor="website" className="text-right">
+                    Website
+                  </Label>
+                  <Input
+                    id="website"
+                    {...register("websiteName")}
+                    className="col-span-3"
+                  />
+                </div>
+                <div className="flex flex-col items-start gap-4">
+                  <Label htmlFor="profession" className="text-right">
+                    Profession
+                  </Label>
+                  <Input
+                    id="profession"
+                    {...register("profession")}
+                    className="col-span-3"
+                  />
+                  {errors.profession && <p>{errors.profession.message}</p>}
+                </div>
+                <div className="flex flex-col items-start gap-4">
+                  <Label htmlFor="bio" className="text-right">
+                    Bio
+                  </Label>
+                  <Textarea
+                    id="bio"
+                    {...register("bio")}
+                    className="col-span-3"
+                  />
+                </div>
+                <SheetFooter>
+                  <SheetClose asChild>
+                    <Button type="submit" className="bg-[#F1C40F]">
+                      Save changes
+                    </Button>
+                  </SheetClose>
+                </SheetFooter>
+              </form>
             </SheetContent>
           </Sheet>
         </div>
@@ -190,7 +202,8 @@ const UserProfile = ({ userData }) => {
       <Separator className="my-4" />
       <div className="">
         <p className="text-sm md:text-md md:w-[50%] dark:text-[#f1f1f1]/50 text-[#282F30]">
-          {userData?.portfolioInfo?.bio?.bio || "Add a short bio about yourself."}
+          {userData?.portfolioInfo?.bio?.bio ||
+            "Add a short bio about yourself."}
         </p>
       </div>
       <Separator className="my-4" />
@@ -214,7 +227,11 @@ const UserProfile = ({ userData }) => {
           })
         ) : (
           <p className="text-muted-foreground">
-            No social media links added yet.Click the &quot;Add Skills&quot; button to get started.
+            No social media links added yet.Click the &quot;
+            <Link href={`/create/${id}`} className="text-[#1e1e1e] underline">
+              Add Socials
+            </Link>
+            &quot; to get started.
           </p>
         )}
       </div>

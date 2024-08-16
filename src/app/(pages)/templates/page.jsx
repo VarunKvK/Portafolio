@@ -8,6 +8,7 @@ const Templates = () => {
   const [template, setTemplate] = useState([]);
   const [progress, setProgress] = useState(0);
   const [loading, setLoading] = useState(true);
+  const [userId,setuserId]=useState()
 
   useEffect(() => {
     const fetchTemplate = async () => {
@@ -29,7 +30,20 @@ const Templates = () => {
       }
     };
 
+    const fetchuserId= async()=>{
+      try{
+        const resultId=await fetch("/api/usersData");
+        if(resultId.ok){
+          const userId=await resultId.json();
+          setuserId(userId)
+        }
+      }catch (error) {
+        console.error("Error fetching data", error)
+      }
+    }
+
     fetchTemplate();
+    fetchuserId();
   }, []);
 
   return (
@@ -46,7 +60,7 @@ const Templates = () => {
       {!loading && (
         <div className="flex flex-col md:grid md:grid-cols-2 gap-10 max-w-6xl mx-auto w-full h-full mt-8 px-4">
           {template.map((data, index) => (
-            <TemplatesContainer template_data={data} key={index} />
+            <TemplatesContainer template_data={data} key={index} id={userId}/>
           ))}
         </div>
       )}

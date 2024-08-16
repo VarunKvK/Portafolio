@@ -179,8 +179,10 @@ const SkillProfile = ({ userSkills, id }) => {
             </BadgeContainer>
           ))
         ) : (
-          <p className="col-span-2 text-center py-4 text-[#282F30]/70 dark:text-[#f1f1f1]/70">
-            No skills added yet. Click the &quot;Add Skills&quot; button to get started.
+          <p className="col-span-2 text-center md:text-left py-4 text-[#282F30]/70 dark:text-[#f1f1f1]/70">
+            No skills added yet. Click the &quot;<Link href={`/create/${id}`} className="text-[#1e1e1e] underline">
+              Add Skills
+            </Link>&quot; to get started.
           </p>
         )}
       </div>

@@ -76,9 +76,11 @@ const PortfolioCreatedProfile = ({ id }) => {
             />
           ))
         ) : (
-          <p className="col-span-2 text-center py-4 text-[#282F30]/70 dark:text-[#f1f1f1]/70">
-          No portfolios created yet.
-        </p>
+          <p className="col-span-2 text-center md:text-left py-4 text-[#282F30]/70 dark:text-[#f1f1f1]/70">
+            No portfolios created yet. Click the &quot;<Link href={`/create/${id}`} className="text-[#1e1e1e] underline">
+              Add Portfolios
+            </Link>&quot; to get started.
+          </p>
         )}
       </div>
     </div>

@@ -57,7 +57,7 @@ const Dashboard = () => {
 
   return (
     <div className="max-w-8xl mx-auto flex flex-col justify-center items-center gap-2 h-full">
-      <UserProfile userData={user} />
+      <UserProfile userData={user} id={user_id}/>
       <SkillProfile userSkills={skills} id={user_id} />
       <ProjectProfile userProjects={projects} id={user_id} />
       <PortfolioCreatedProfile id={user_id} />

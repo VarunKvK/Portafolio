@@ -4,7 +4,7 @@ import BadgeContainer from "@/components/smallerComponents/Badge";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 
-const TemplatesContainer = ({ template_data }) => {
+const TemplatesContainer = ({ template_data,id }) => {
   const router = useRouter();
   const params = usePathname();
   const [hasPortfolioData, setPortfolioData] = useState();
@@ -38,8 +38,13 @@ const TemplatesContainer = ({ template_data }) => {
       //Save the template id to local storage
       window.localStorage.setItem("template_id", id);
     }
-    //Redirect the user to the template creation page
-    router.push(`/create`);
+    if(hasPortfolioData){
+      //Redirect the user to the template creation page
+      router.push(`/create/${id}`);
+    }else{
+      //Redirect the user to the template creation page
+      router.push(`/create`)
+    }
   }
 
   return (
