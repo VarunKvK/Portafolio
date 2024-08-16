@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Separator } from "../ui/separator";
 import { SavedProjects } from "./SavedProjectsProfile";
 import Loader from "./Loader";
+import Link from "next/link";
 
 const PortfolioCreatedProfile = ({ id }) => {
   const [userTemplate, setUserTemplate] = useState(null);
