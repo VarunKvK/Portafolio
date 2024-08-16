@@ -171,7 +171,7 @@ const UserProfile = ({ userData }) => {
           })
         ) : (
           <p className="text-muted-foreground">
-            No social media links added yet.
+            No social media links added yet.Click the &quot;Add Skills&quot; button to get started.
           </p>
         )}
       </div>
