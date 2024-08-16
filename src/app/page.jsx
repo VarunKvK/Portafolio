@@ -91,15 +91,15 @@ export default function Home() {
         </section>
 
         {/* Features */}
-        <section className="flex items-center h-[88vh]">
-          <div className="flex flex-col gap-12">
+        <section className="flex items-center">
+          <div className="grid grid-rows-2 gap-12">
             <h2 className="text-[#282F30] dark:text-[#f1f1f1] font-bold text-[40px] w-[60%] md:text-[50px]">
               Why Choose Portafolio?
             </h2>
-            <div className=" md:hidden flex items-center ">
+            {/* <div className=" md:hidden flex items-center w-[64%]">
               <Features features={FeaturesList} />
-            </div>
-            <div className="hidden md:grid grid-cols-3 gap-10">
+            </div> */}
+            <div className="grid md:grid-cols-3 grid-rows-3 gap-10">
               {FeaturesList.map((f) => (
                 <FeaturesContainer
                   key={f.id}
