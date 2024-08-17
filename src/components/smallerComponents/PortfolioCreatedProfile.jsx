@@ -13,18 +13,16 @@ const PortfolioCreatedProfile = ({ id }) => {
     const fetchUserTemplateData = async () => {
       try {
         const response = await fetch("/api/userTemplateData", {
-          method: "POST",
+          method: "GET",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ user_id: id }),
         });
         setProgress(90);
-
         if (response.ok) {
           const userTemplateData = await response.json();
           setUserTemplate(userTemplateData);
-          setPortfolio(userTemplateData?.websiteData || []);
+          setPortfolio(userTemplateData?.websiteData);
         } else {
           console.error("Failed to fetch user template data");
         }

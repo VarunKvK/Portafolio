@@ -102,12 +102,17 @@ const SkillProfile = ({ userSkills, id }) => {
           Your Skills
         </h1>
         <div className="flex items-center gap-2">
-          <Link href={`/create/${id}`} passHref>
-            <Button variant="outline" className="flex items-center gap-1 border-white/50 dark:bg-[#15191a] dark:border-[#282F30]/40 dark:text-white">
-              <Plus className="w-4" />
-              <span className="md:block hidden">Add Skills</span>
-            </Button>
-          </Link>
+          {skills.length <= 0 && (
+            <Link href={`/create/${id}`} passHref>
+              <Button
+                variant="outline"
+                className="flex items-center gap-1 border-white/50 dark:bg-[#15191a] dark:border-[#282F30]/40 dark:text-white"
+              >
+                <Plus className="w-4" />
+                <span className="md:block hidden">Add Skills</span>
+              </Button>
+            </Link>
+          )}
           {skills.length > 0 && (
             <Dialog>
               <DialogTrigger
@@ -123,7 +128,8 @@ const SkillProfile = ({ userSkills, id }) => {
                 <DialogHeader>
                   <DialogTitle>Edit Your Skills</DialogTitle>
                   <DialogDescription>
-                    Make changes to your skills here. Click save when you&apos;re done.
+                    Make changes to your skills here. Click save when
+                    you&apos;re done.
                   </DialogDescription>
                 </DialogHeader>
                 {skills.length > 0 ? (
@@ -148,10 +154,14 @@ const SkillProfile = ({ userSkills, id }) => {
                 ) : (
                   <div className="px-[24px] py-[24px] text-center">
                     <p className="text-[#282F30]/70 dark:text-[#f1f1f1]/70 mb-4">
-                      You have no skills added. Please add some skills to showcase your expertise.
+                      You have no skills added. Please add some skills to
+                      showcase your expertise.
                     </p>
                     <Link href={`/create/${id}`} passHref>
-                      <Button variant="outline" className="flex items-center gap-1 mx-auto">
+                      <Button
+                        variant="outline"
+                        className="flex items-center gap-1 mx-auto"
+                      >
                         <Plus className="w-4" />
                         <span>Add Skills</span>
                       </Button>
@@ -160,7 +170,12 @@ const SkillProfile = ({ userSkills, id }) => {
                 )}
                 {skills.length > 0 && (
                   <div className="flex items-center justify-end mt-4 gap-2">
-                    <Button onClick={handleSaveSkills} type="button" disabled={saving} className="bg-[#F1C40F]">
+                    <Button
+                      onClick={handleSaveSkills}
+                      type="button"
+                      disabled={saving}
+                      className="bg-[#F1C40F]"
+                    >
                       {saving ? "Saving..." : "Save Changes"}
                     </Button>
                   </div>
@@ -180,9 +195,11 @@ const SkillProfile = ({ userSkills, id }) => {
           ))
         ) : (
           <p className="col-span-2 text-center md:text-left py-4 text-[#282F30]/70 dark:text-[#f1f1f1]/70">
-            No skills added yet. Click the &quot;<Link href={`/create/${id}`} className="text-[#1e1e1e] underline">
+            No skills added yet. Click the &quot;
+            <Link href={`/create/${id}`} className="text-[#1e1e1e] underline">
               Add Skills
-            </Link>&quot; to get started.
+            </Link>
+            &quot; to get started.
           </p>
         )}
       </div>

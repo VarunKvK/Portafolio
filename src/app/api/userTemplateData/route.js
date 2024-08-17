@@ -1,4 +1,4 @@
-import connectToDatabase from "@/lib/mongodb";
+  import connectToDatabase from "@/lib/mongodb";
 import Template from "@/models/Templates";
 import UserTemplate from "@/models/UsersTemplateData";
 import { currentUser } from "@clerk/nextjs/server";
