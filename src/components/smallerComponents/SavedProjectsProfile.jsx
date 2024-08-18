@@ -54,7 +54,7 @@ export function SavedProjects({ portfolio, onDelete, id }) {
   
 
   return (
-    <Card className="flex flex-col gap-4 w-full bg-[#f7f7f7] border border-white/50 dark:bg-[#15191a] dark:border-[#282F30]/40 p-4 rounded-[2rem] ">
+    <Card className="flex flex-col gap-4 md:w-full w-[87%] bg-[#f7f7f7] border border-white/50 dark:bg-[#15191a] dark:border-[#282F30]/40 p-4 rounded-[2rem] ">
       <Image
         src={portfolio.templateImageUrl}
         alt={portfolio.templateName}
