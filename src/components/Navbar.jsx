@@ -127,22 +127,6 @@ export default function Navbar() {
                     Templates
                   </Link>
                 </li>
-                <li className="">
-                  <Link
-                    className="font-semibold text-[16px] text-[#4D5657] dark:text-[#f1f1f1]"
-                    href="/pricing"
-                  >
-                    Pricing
-                  </Link>
-                </li>
-                <li className="">
-                  <Link
-                    className="font-semibold text-[16px] text-[#4D5657] dark:text-[#f1f1f1]"
-                    href="/feedback"
-                  >
-                    Feedback
-                  </Link>
-                </li>
               </ul>
             </div>
             <div className="md:flex hidden items-center gap-4">
@@ -246,24 +230,6 @@ export default function Navbar() {
               onClick={toggleSidebar}
             >
               Templates
-            </Link>
-          </li>
-          <li className="px-4 py-2">
-            <Link
-              className="font-semibold text-[16px] text-[#f1f1f1] dark:text-[#282F30]"
-              href="/pricing"
-              onClick={toggleSidebar}
-            >
-              Pricing
-            </Link>
-          </li>
-          <li className="px-4 py-2">
-            <Link
-              className="font-semibold text-[16px] text-[#f1f1f1] dark:text-[#282F30]"
-              href="/feedback"
-              onClick={toggleSidebar}
-            >
-              Feedback
             </Link>
           </li>
         </ul>
