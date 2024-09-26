@@ -59,6 +59,7 @@ export default function Home() {
       <div className="max-w-6xl mx-auto md:px-4 px-6">
         {/* Header */}
         <section className="flex items-center md:h-[88vh] h-screen">
+          <a href="https://www.producthunt.com/posts/portafolio?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-portafolio" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=492427&theme=light" alt="Portafolio - Create&#0032;Stunning&#0032;Portfolios&#0032;Instantly | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
           <div className="grid gap-4">
             <div className="flex flex-col gap-2">
               <h1 className="text-[#282F30] dark:text-[#f1f1f1] leading-tight w-[80%] md:w-[75%] font-bold text-[40px] md:text-[64px]">
